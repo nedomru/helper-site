@@ -35,7 +35,9 @@
         <h1>Помощник</h1>
         <p>Инструмент, упрощающий твою работу</p>
         <div class="button-container">
-            <form action="https://github.com/AuthFailed/domru-helper/releases/latest/download/domhelper.xpi">
+            <label for="version-select" class="form-label">Версия:</label>
+            <select id="version-select" class="form-control mb-3"></select>
+            <form id="download-form" action="#" method="get">
                 <button type="submit" class="btn btn-primary btn-lg mb-4">Установить / Обновить</button>
             </form>
             <a href="https://t.me/nedomru" target="_blank">
@@ -44,9 +46,35 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdzN4M6VrxKXgG2R9ZlEydClU0tG0B+f2X7C/VHkA7dT3wLYweF9DqY7D5x6D"
-        crossorigin="anonymous"></script>
+    <script>
+        const versionsUrl = 'https://api.github.com/repos/AuthFailed/domru-helper/releases';
+        const downloadForm = document.getElementById('download-form');
+        const versionSelect = document.getElementById('version-select');
+
+        async function fetchVersions() {
+            const response = await fetch(versionsUrl);
+            return response.json();
+        }
+
+        function populateVersionSelect(releases) {
+            releases.forEach((release, index) => {
+                const option = document.createElement('option');
+                option.value = release.tag_name;
+                option.textContent = release.tag_name + (index === 0 ? ' (Актуальная версия)' : '');
+                versionSelect.appendChild(option);
+            });
+            versionSelect.value = releases[0].tag_name;
+            updateDownloadUrl();
+        }
+
+        function updateDownloadUrl() {
+            downloadForm.action = `https://github.com/AuthFailed/domru-helper/releases/download/${versionSelect.value}/domhelper.xpi`;
+        }
+
+        versionSelect.addEventListener('change', updateDownloadUrl);
+
+        fetchVersions().then(populateVersionSelect);
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
