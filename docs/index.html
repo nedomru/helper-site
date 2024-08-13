@@ -6,51 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Помощник</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Подключение CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: url('https://example.com/background.jpg') no-repeat center center fixed;
-            background-size: cover;
-            text-align: center;
-        }
-
-        .content {
-            color: black;
-        }
-
-        .button-container {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-        }
-
-        #select-container {
-            width: max-content;
-            display: flex;
-        }
-
-        #release-description {
-            width: auto;
-            max-height: 400px;
-            overflow-y: auto;
-            padding: 10px;
-            margin-top: 10px;
-            background: white;
-            text-align: left;
-            resize: vertical;
-            box-shadow: none;
-        }
-    </style>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> <!-- Добавлено jQuery -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
@@ -72,51 +29,11 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        const versionsUrl = 'https://api.github.com/repos/AuthFailed/domru-helper/releases';
-        const downloadForm = document.getElementById('download-form');
-        const versionSelect = document.getElementById('version-select');
-        const releaseDescription = document.getElementById('release-description');
-
-        async function fetchVersions() {
-            const response = await fetch(versionsUrl);
-            return response.json();
-        }
-
-        function populateVersionSelect(releases) {
-            releases.forEach((release, index) => {
-                const option = document.createElement('option');
-                option.value = release.tag_name;
-                option.textContent = release.tag_name + (index === 0 ? ' (Актуальная версия)' : '');
-                versionSelect.appendChild(option);
-            });
-            updateDownloadUrl(releases[0]);
-            updateReleaseDescription(releases[0]);
-        }
-
-        function updateDownloadUrl(selectedRelease) {
-            downloadForm.action = `https://github.com/AuthFailed/domru-helper/releases/download/${selectedRelease.tag_name}/domhelper.xpi`;
-        }
-
-        function updateReleaseDescription(release) {
-            releaseDescription.innerHTML = marked.parse(release.body || 'Нет описания');
-        }
-
-        versionSelect.addEventListener('change', () => {
-            const selectedTag = versionSelect.value;
-            fetchVersions().then(releases => {
-                const selectedRelease = releases.find(r => r.tag_name === selectedTag);
-                if (selectedRelease) {
-                    updateDownloadUrl(selectedRelease);
-                    updateReleaseDescription(selectedRelease);
-                }
-            });
-        });
-
-        fetchVersions().then(populateVersionSelect);
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script> <!-- Подключение JavaScript -->
 </body>
 
 </html>
