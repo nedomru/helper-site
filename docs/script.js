@@ -3,6 +3,48 @@ const versionsUrl =
 const downloadForm = document.getElementById("download-form");
 const versionSelect = document.getElementById("version-select");
 const releaseDescription = document.getElementById("release-description");
+const themeToggle = document.getElementById("theme-toggle");
+const sunIcon = document.getElementById("sun-icon");
+const moonIcon = document.getElementById("moon-icon");
+
+// Проверка предпочтений темы у пользователя
+if (
+  window.matchMedia &&
+  window.matchMedia("(prefers-color-scheme: dark)").matches
+) {
+  document.body.classList.add("dark-mode");
+}
+
+// Сохранение выбранной темы
+function saveThemePreference(isDark) {
+  localStorage.setItem("dark-mode", isDark ? "true" : "false");
+}
+
+// Переключение темы
+function toggleTheme() {
+  const isDarkMode = document.body.classList.toggle("dark-mode");
+  moonIcon.style.display = isDarkMode ? "block" : "none";
+  sunIcon.style.display = isDarkMode ? "none" : "block";
+  saveThemePreference(isDarkMode);
+}
+
+// Установка темы на основе сохраненного предпочтения
+function applySavedThemePreference() {
+  const savedPreference = localStorage.getItem("dark-mode");
+  if (savedPreference === "true") {
+    document.body.classList.add("dark-mode");
+    moonIcon.style.display = "block";
+    sunIcon.style.display = "none";
+  } else {
+    sunIcon.style.display = "block";
+    moonIcon.style.display = "none";
+  }
+}
+
+// Инициализация темы
+applySavedThemePreference();
+
+themeToggle.addEventListener("click", toggleTheme);
 
 async function fetchVersions() {
   const response = await fetch(versionsUrl);
