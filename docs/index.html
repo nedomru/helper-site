@@ -1,43 +1,127 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Помощник</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> <!-- Подключение CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Твой помощник</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="css/styles.css" rel="stylesheet" />
 </head>
 
 <body>
-    <div class="content">
-        <h1>Помощник</h1>
-        <p>Инструмент, упрощающий твою работу</p>
-        <div class="button-container">
-            <label for="version-select" class="form-label">Версия:</label>
-            <div id="select-container">
-                <select id="version-select" class="form-control mb-3"></select>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container px-lg-5">
+            <a class="navbar-brand" href="#!">Привет!</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://t.me/nedomru">TG канал</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://t.me/roman_domru">Разработчик</a></li>
+                </ul>
             </div>
-            <form id="download-form" action="#" method="get">
-                <button type="submit" class="btn btn-primary btn-lg mb-4">Установить / Обновить</button>
-            </form>
-            <a href="https://t.me/nedomru" target="_blank">
-                <i class="fab fa-telegram fa-2x"></i>
-            </a>
-            <div id="release-description"></div>
         </div>
-    </div>
-    <div class="theme-toggle" id="theme-toggle">
-        <i class="fas fa-sun" id="sun-icon"></i>
-        <i class="fas fa-moon" id="moon-icon" style="display:none;"></i>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="script.js"></script> <!-- Подключение JavaScript -->
+    </nav>
+    <!-- Header-->
+    <header class="py-5">
+        <div class="container px-lg-5">
+            <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+                <div class="m-4 m-lg-5">
+                    <h1 class="display-5 fw-bold">Помощник</h1>
+                    <p class="fs-4">Инструмент, который многократно повысит эффективность твоей работы :)</p>
+                    <button type="submit" class="btn btn-primary btn-lg mb-4">Установить</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Page Content-->
+    <section class="pt-4">
+        <div class="container px-lg-5">
+            <!-- Page Features-->
+            <div class="row gx-lg-5">
+                <div class="col-lg-6 col-xxl-4 mb-5">
+                    <div class="card bg-light border-0 h-100">
+                        <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i
+                                    class="bi bi-plug"></i></div>
+                            <h2 class="fs-4 fw-bold">Простая установка</h2>
+                            <p class="mb-0">Установка расширения не требует особых знаний</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xxl-4 mb-5">
+                    <div class="card bg-light border-0 h-100">
+                        <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i
+                                    class="bi bi-arrow-repeat"></i></div>
+                            <h2 class="fs-4 fw-bold">Без переустановки</h2>
+                            <p class="mb-0">Расширение не нужно переустанавливать при перезапуске браузера</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xxl-4 mb-5">
+                    <div class="card bg-light border-0 h-100">
+                        <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i
+                                    class="bi bi-arrow-clockwise"></i></div>
+                            <h2 class="fs-4 fw-bold">Обновления</h2>
+                            <p class="mb-0">Активная поддержка кода, обновления и исправления багов <br />Установка
+                                обновления в одну кнопку</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xxl-4 mb-5">
+                    <div class="card bg-light border-0 h-100">
+                        <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i
+                                    class="bi bi-gear"></i></div>
+                            <h2 class="fs-4 fw-bold">Огромный функционал</h2>
+                            <p class="mb-0">Расширение содержит в себе большое кол-во оптимизаций и добавлений к
+                                стандартным рабочим инструментам</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xxl-4 mb-5">
+                    <div class="card bg-light border-0 h-100">
+                        <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i
+                                    class="bi bi-browser-firefox"></i></div>
+                            <h2 class="fs-4 fw-bold">Обратная совместимость</h2>
+                            <p class="mb-0">Расширение корректно работает со всеми версиями браузера Firefox</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xxl-4 mb-5">
+                    <div class="card bg-light border-0 h-100">
+                        <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i
+                                    class="bi bi-lightbulb"></i></div>
+                            <h2 class="fs-4 fw-bold">Адаптивность</h2>
+                            <p class="mb-0">Расширение развивается благодаря вашим предложениям. Предложить доработку
+                                можно <a href="https://t.me/roman_domru">тут</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>
