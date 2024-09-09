@@ -11,10 +11,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Вика по Хелперу",
-      logo: {
-        src: "./src/content/assets/logo.png",
-        replacesTitle: true,
-      },
+      favicon: "/favicon.ico",
       locales: {
         root: {
           label: "Russian",
