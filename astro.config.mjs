@@ -12,6 +12,9 @@ export default defineConfig({
     starlight({
       title: "Вика по Хелперу",
       favicon: "/favicon.ico",
+      logo: {
+        src: "./public/logo.png",
+      },
       locales: {
         root: {
           label: "Russian",
