@@ -1,3 +1,18 @@
+<html lang="ru">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/domru-helper/icons/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="/domru-helper/styles/styles.css">
+    <link rel="stylesheet" href="/domru-helper/styles/bootstrap-icons.min.css">
+		<title>Хелпер</title>
+	</head>
+	<body>
+		<slot/>
+	</body>
+
+    <script>
 const versionsUrl =
   "https://api.github.com/repos/AuthFailed/domru-helper/releases";
 
@@ -10,10 +25,6 @@ async function fetchLatestVersion() {
 function updateDownloadUrl(selectedRelease) {
   const downloadUrl = `https://github.com/AuthFailed/domru-helper/releases/download/${selectedRelease.tag_name}/domhelper.xpi`;
   return downloadUrl;
-}
-
-function updateReleaseDescription(release) {
-  releaseDescription.innerHTML = marked.parse(release.body || "Нет описания");
 }
 
 // Обработчик события для кнопки "Установить"
@@ -30,5 +41,6 @@ installButton.addEventListener("click", async (event) => {
   document.body.appendChild(link);
   link.click(); // Инициируем скачивание
   document.body.removeChild(link); // Удаляем элемент
-  updateReleaseDescription(latestRelease); // Обновляем описание
 });
+    </script>
+</html>
