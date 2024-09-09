@@ -24,7 +24,13 @@ export default defineConfig({
       sidebar: [
         { label: "🏠 Главная", link: "/" },
         { label: "👋 База", link: "/wiki" },
-        { label: "🛠️ Установка расширения", link: "/wiki/setup" },
+        {
+          label: "Инструкции",
+          items: [
+            { slug: "wiki/instructions/setup" },
+            { slug: "wiki/instructions/open-settings" },
+          ],
+        },
         {
           label: "Функции",
           items: [
