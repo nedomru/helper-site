@@ -15,6 +15,9 @@ export default defineConfig({
       logo: {
         src: "./public/logo.png",
       },
+      editLink: {
+        baseUrl: "https://github.com/authfailed/domru-helper/edit/main/",
+      },
       locales: {
         root: {
           label: "Russian",
