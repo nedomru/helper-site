@@ -19,7 +19,7 @@ export default defineConfig({
         },
       },
       sidebar: [
-        { label: "Домашняя страница", link: "/" },
+        { label: "🏠 Главная", link: "/" },
         { label: "👋 База", link: "/wiki" },
         { label: "🛠️ Установка расширения", link: "/wiki/setup" },
         {
