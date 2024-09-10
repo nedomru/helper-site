@@ -3,7 +3,6 @@ import { Image } from "astro:assets";
 
 import Layout from "../Layouts/Layout.astro";
 import Feature from "../Layouts/Feature.astro";
-import Logo from "../../public/logo.png";
 ---
 
 <Layout>
@@ -84,11 +83,7 @@ import Logo from "../../public/logo.png";
     <div class="container px-lg-5">
       <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
         <div class="m-4 m-lg-5">
-          <Image
-            src={Logo}
-            alt="A bird sitting on a nest of eggs."
-            width="140"
-          />
+          <img src="/domru-helper/logo.png" alt="Logo" width="140px" />
           <h1 class="display-5 fw-bold">Хелпер</h1>
           <p class="fs-4">
             Инструмент, который многократно повысит эффективность твоей работы
