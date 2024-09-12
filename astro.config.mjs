@@ -15,6 +15,10 @@ export default defineConfig({
       logo: {
         src: "./public/logo.png",
       },
+      customCss: [
+        // Относительный путь к вашему CSS файлу
+        "./src/styles/custom.css",
+      ],
       editLink: {
         baseUrl: "https://github.com/authfailed/domru-helper/edit/main/",
       },
