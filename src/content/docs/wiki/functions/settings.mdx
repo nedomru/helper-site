@@ -17,6 +17,9 @@ import dutyButtons from "@assets/functions/settings/line-dutybuttons.png";
 import otpc from "@assets/functions/settings/settings_otpc.png";
 import darkTheme from "@assets/functions/settings/settings-darktheme.png";
 import lightTheme from "@assets/functions/settings/settings-lighttheme.png";
+import fbLeftFrame from "@assets/functions/settings/arm-fb-leftframe.png";
+import fbeditreq from "@assets/functions/settings/arm-fb-editreq.png";
+import highlights from "@assets/functions/settings/arm-highlights.png";
 
 :::note
 Перед изменением настроек убедись, что у тебя установлена последняя версия расширения
@@ -231,6 +234,48 @@ import lightTheme from "@assets/functions/settings/settings-lighttheme.png";
 
 <details>
 <summary>Быстрые кнопки</summary>
+<details>
+<summary>Левый фрейм</summary>
+Кнопки располагаются в левой фрейме АРМа.
+
+**Особенности:**
+
+- Если кнопка подразумевает смену продукта - произойдет баг. Требуется либо заранее выбрать корректный продукт, либо дважды нажать на кнопку.
+
+**Состояние:**
+
+- Включено - Расширение добавляет включенные в настройках кнопки в левый фрейм
+- Выключено - Кнопки не добавляются
+
+**Пример:**
+
+    <Image
+      src={fbLeftFrame}
+      alt="Особый клиент"
+      style="border: 2px solid grey;"
+    />
+
+    </details>
+
+    <details>
+
+<summary>Изменение обращения</summary>
+Кнопки располагаются в окне изменения обращения.
+
+**Состояние:**
+
+- Включено - Расширение добавляет включенные в настройках кнопки на страницу изменения обращения
+- Выключено - Кнопки не добавляются
+
+**Пример:**
+
+    <Image
+      src={fbeditreq}
+      alt="Особый клиент"
+      style="border: 2px solid grey;"
+    />
+
+    </details>
 
 </details>
 
@@ -327,11 +372,51 @@ import lightTheme from "@assets/functions/settings/settings-lighttheme.png";
 
 <details>
 <summary>Скрытие вкладок</summary>
+Функция позволяет скрывать вкладки с договора в АРМе.
+
+**Особенности:**
+
+- Вкладки поделены на два типа: Начисления и Остальные
+- Вкладки на договор можно вернуть только отключением функции/конкретной опции и **обновлением договора**
+- Вкладки удаляются после полной загрузки договора
+
+**Состояние:**
+
+- Включено - Выбранные в настройках вкладки удаляются
+- Выключено - Вкладки не удаляются (Стандарт)
 
 </details>
 
 <details>
 <summary>Подсветка обращений</summary>
+Функция включает подсветку классификаторов в столбце **Класс проблемы**.
+
+**Особенности:**
+
+- На текущий момент доступна подсветка следующих классов:
+  - Контакт сорвался
+  - Обращение из Email
+  - ОЦТП - Входящая связь
+  - Компенсация за аварию
+- Доступен выбор своего цвета для каждого классификатора
+- Стандартные цветы подсветки для классификаторов:
+  - Контакт сорвался - <span style="background-color:#ff0000">#ff0000</span>
+  - Обращение из Email - <span style="background-color:#006400">#006400</span>
+  - ОЦТП - Входящая связь - <span style="background-color:#008080">#008080</span>
+  - Компенсация за аварию - <span style="background-color:#66CDAA">#66CDAA</span>
+
+**Состояние:**
+
+- Включено - Классификаторы подсвечиваются цветом, указанным в настройках (Стандарт)
+- Выключено - Классификаторы не подсвечиваются
+
+**Пример:**
+
+    <Image
+      src={highlights}
+      alt="Подсветка обращений"
+      style="border: 2px solid grey;"
+    />
 
 </details>
 </TabItem>
