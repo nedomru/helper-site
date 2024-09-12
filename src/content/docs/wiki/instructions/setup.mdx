@@ -3,7 +3,12 @@ title: 🔧 Установка расширения
 tableOfContents: false
 ---
 
+import { Image } from "astro:assets";
 import { Tabs, TabItem, Card } from "@astrojs/starlight/components";
+
+import installButton from "@assets/instructions/setup/installButton.png";
+import addButton from "@assets/instructions/setup/addButton.png";
+import continueInstallButton from "@assets/instructions/setup/continueInstallButton.png";
 
 :::caution
 Расширение работает корректно только с браузером Firefox. Официальной поддержки Chrome нет и не планируется.
@@ -15,27 +20,24 @@ import { Tabs, TabItem, Card } from "@astrojs/starlight/components";
 
 1.  Заходим на [главную страницу расширения](https://authfailed.github.io/domru-helper/)
 2.  Нажимаем **Установить**
-    {" "}
-    <img
-      src="/domru-helper/images/setup-install.png"
-      alt="Установить"
-      width="350px"
+
+    <Image
+      src={installButton}
+      alt="Вкладка АРМ"
       style="border: 2px solid grey;"
     />
-3.  Нажимаем **Продолжить установку**
-    <img
-      src="/domru-helper/images/setup-continueinstall.png"
-      alt="Продолжить установку"
-      width="350px"
+
+3.  Нажимаем **Продолжить установку**:
+
+    <Image
+      src={continueInstallButton}
+      alt="Вкладка АРМ"
       style="border: 2px solid grey;"
     />
+
 4.  Нажимаем **Добавить**
-    <img
-      src="/domru-helper/images/setup-add.png"
-      alt="Добавить"
-      width="350px"
-      style="border: 2px solid grey;"
-    />
+
+    <Image src={addButton} alt="Вкладка АРМ" style="border: 2px solid grey;" />
 
 </TabItem>
 

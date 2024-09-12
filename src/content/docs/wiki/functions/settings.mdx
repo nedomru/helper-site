@@ -3,7 +3,20 @@ title: Настройки
 tableOfContents: false
 ---
 
+import { Image } from "astro:assets";
 import { Tabs, TabItem, Card } from "@astrojs/starlight/components";
+
+import checkMac from "@assets/functions/settings/arm-checkmac.png";
+import copyTime from "@assets/functions/settings/arm-copytime.png";
+import fastSMS from "@assets/functions/settings/arm-fastsms.png";
+import setOnMe from "@assets/functions/settings/arm-setonme.png";
+import specialClient from "@assets/functions/settings/arm-specialclient.png";
+import wrongTransfer from "@assets/functions/settings/arm-wrongtransfer.png";
+import fastButtonsGenesys from "@assets/functions/settings/genesys_fastbuttons.png";
+import dutyButtons from "@assets/functions/settings/line-dutybuttons.png";
+import otpc from "@assets/functions/settings/settings_otpc.png";
+import darkTheme from "@assets/functions/settings/settings-darktheme.png";
+import lightTheme from "@assets/functions/settings/settings-lighttheme.png";
 
 :::note
 Перед изменением настроек убедись, что у тебя установлена последняя версия расширения
@@ -41,19 +54,11 @@ import { Tabs, TabItem, Card } from "@astrojs/starlight/components";
 **Пример:**
 
 - Темная тема включена
-  <img
-    src="/domru-helper/images/settings-darktheme.png"
-    alt="Темная тема"
-    width="350px"
-    style="border: 2px solid grey;"
-  />
+
+  <Image src={darkTheme} alt="Темная тема" style="border: 2px solid grey;" />
+
 - Темная тема выключена
-  <img
-    src="/domru-helper/images/settings-lighttheme.png"
-    alt="Светлая тема"
-    width="350px"
-    style="border: 2px solid grey;"
-  />
+  <Image src={lightTheme} alt="Светлая тема" style="border: 2px solid grey;" />
 
 </details>
 
@@ -72,12 +77,11 @@ import { Tabs, TabItem, Card } from "@astrojs/starlight/components";
 
 **Пример:**
 
-<img
-  src="/domru-helper/images/genesys_fastbuttons.png"
-  alt="Быстрые кнопки в Генезисе"
-  width="auto"
-  style="border: 2px solid grey;"
-/>
+    <Image
+      src={fastButtonsGenesys}
+      alt="Быстрые кнопки"
+      style="border: 2px solid grey;"
+    />
 
 </details>
 
@@ -120,12 +124,11 @@ import { Tabs, TabItem, Card } from "@astrojs/starlight/components";
 
 **Пример:**
 
-<img
-  src="/domru-helper/images/settings_otpc.png"
-  alt="Отображение аварийности НЦК2"
-  width="auto"
-  style="border: 2px solid grey;"
-/>
+    <Image
+      src={otpc}
+      alt="Аварийность OCTP"
+      style="border: 2px solid grey;"
+    />
 
 </details>
 </TabItem>
@@ -159,12 +162,11 @@ import { Tabs, TabItem, Card } from "@astrojs/starlight/components";
 
 **Пример:**
 
-<img
-  src="/domru-helper/images/arm-fastsms.png"
-  alt="Быстрые смс"
-  width="350px"
-  style="border: 2px solid grey;"
-/>
+    <Image
+      src={fastSMS}
+      alt="Быстрые СМС"
+      style="border: 2px solid grey;"
+    />
 
 </details>
 
@@ -179,12 +181,11 @@ import { Tabs, TabItem, Card } from "@astrojs/starlight/components";
 
 **Пример:**
 
-<img
-  src="/domru-helper/images/arm-wrongtransfer.png"
-  alt="Не ошибочное обращение"
-  width="350px"
-  style="border: 2px solid grey;"
-/>
+    <Image
+      src={wrongTransfer}
+      alt="Некорректный перевод"
+      style="border: 2px solid grey;"
+    />
 
 </details>
 
@@ -199,12 +200,11 @@ import { Tabs, TabItem, Card } from "@astrojs/starlight/components";
 
 **Пример:**
 
-<img
-  src="/domru-helper/images/arm-setonme.png"
-  alt="Назначить на меня"
-  width="350px"
-  style="border: 2px solid grey;"
-/>
+    <Image
+      src={setOnMe}
+      alt="Назначить на меня"
+      style="border: 2px solid grey;"
+    />
 
 </details>
 
@@ -219,12 +219,11 @@ import { Tabs, TabItem, Card } from "@astrojs/starlight/components";
 
 **Пример:**
 
-<img
-  src="/domru-helper/images/arm-specialclient.png"
-  alt="Особый клиент"
-  width="350px"
-  style="border: 2px solid grey;"
-/>
+    <Image
+      src={specialClient}
+      alt="Особый клиент"
+      style="border: 2px solid grey;"
+    />
 
 </details>
 
@@ -298,12 +297,11 @@ import { Tabs, TabItem, Card } from "@astrojs/starlight/components";
 
 **Пример:**
 
-<img
-  src="/domru-helper/images/arm-copytime.png"
-  alt="Копирование слотов СЗ"
-  width="350px"
-  style="border: 2px solid grey;"
-/>
+    <Image
+      src={copyTime}
+      alt="Копировать слоты"
+      style="border: 2px solid grey;"
+    />
 
 </details>
 
@@ -317,12 +315,11 @@ import { Tabs, TabItem, Card } from "@astrojs/starlight/components";
 
 **Пример:**
 
-<img
-  src="/domru-helper/images/arm-checkmac.png"
-  alt="Проверка MAC'а"
-  width="350px"
-  style="border: 2px solid grey;"
-/>
+    <Image
+      src={checkMac}
+      alt="Проверить МАК"
+      style="border: 2px solid grey;"
+    />
 
 </details>
 
@@ -378,12 +375,11 @@ import { Tabs, TabItem, Card } from "@astrojs/starlight/components";
 
 **Пример:**
 
-<img
-  src="/domru-helper/images/line-dutybuttons.png"
-  alt="Кнопки дежурных"
-  width="auto"
-  style="border: 2px solid grey;"
-/>
+    <Image
+      src={dutyButtons}
+      alt="Кнопки дежурных"
+      style="border: 2px solid grey;"
+    />
 
 </details>
 

@@ -32,6 +32,7 @@ export default defineConfig({
           items: [
             { slug: "wiki/instructions/setup" },
             { slug: "wiki/instructions/open-settings" },
+            { slug: "wiki/instructions/add-buttons" },
           ],
         },
         {
