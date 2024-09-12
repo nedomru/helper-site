@@ -3,14 +3,21 @@ title: Окно расширения
 tableOfContents: false
 ---
 
+import { Image } from "astro:assets";
+
+import extIcon from "@assets/functions/popup-window/ext-icon.png";
+import window from "@assets/functions/popup-window/window.png";
+import instruments from "@assets/functions/popup-window/instruments.png";
+import mna from "@assets/functions/popup-window/MnA.png";
+import routers from "@assets/functions/popup-window/routers.png";
+
 Для открытия главного окна расширения нажми на иконку расширения:
 
-<img
-  src="/domru-helper/images/ext-icon.png"
-  alt="Иконка расширения"
-  width="auto"
-  style="border: 2px solid grey;"
-/>
+    <Image
+      src={extIcon}
+      alt="Иконка расширения"
+      style="border: 2px solid grey;"
+    />
 
 В окне есть следующие вкладки (список кликабелен):
 
@@ -25,12 +32,11 @@ tableOfContents: false
 
 На вкладке находятся ссылки на часто используемые в работе ресурсы. Ссылки активно модерируются/удаляются/добавляются при необходимости.
 
-<img
-  src="/domru-helper/images/popup-window.png"
-  alt="Вкладка Главная"
-  width="350px"
-  style="border: 2px solid grey;"
-/>
+    <Image
+      src={window}
+      alt="Окно расширения"
+      style="border: 2px solid grey;"
+    />
 
 ### MnA
 
@@ -43,12 +49,7 @@ tableOfContents: false
 - Авторизация - Тип авторизации в сети
 - Подключение - Тип подключения клиентов
 
-<img
-  src="/domru-helper/images/MnA.png"
-  alt="Вкладка MnA"
-  width="350px"
-  style="border: 2px solid grey;"
-/>
+<Image src={mna} alt="Вкладка MnA" style="border: 2px solid grey;" />
 
 ### Роутеры
 
@@ -66,12 +67,7 @@ tableOfContents: false
 - БЗ - ссылка на роутер в БЗ
 - Эмулятор - ссылка на эмулятор роутера (если такой есть)
 
-<img
-  src="/domru-helper/images/routers.png"
-  alt="Вкладка Роутеры"
-  width="350px"
-  style="border: 2px solid grey;"
-/>
+<Image src={routers} alt="Вкладка Роутеры" style="border: 2px solid grey;" />
 
 ### Инструменты
 
@@ -95,9 +91,8 @@ http://ip-api.com/json/${IP-address}?fields=country,regionName,city,org&lang=ru
 https://clck.ru/--?url=${Link}
 ```
 
-<img
-  src="/domru-helper/images/instruments.png"
+<Image
+  src={instruments}
   alt="Вкладка Инструменты"
-  width="350px"
   style="border: 2px solid grey;"
 />
