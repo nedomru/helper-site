@@ -37,6 +37,7 @@ export default defineConfig({
             { slug: "wiki/instructions/setup" },
             { slug: "wiki/instructions/open-settings" },
             { slug: "wiki/instructions/add-buttons" },
+            { slug: "wiki/instructions/change-highlight-color" },
           ],
         },
         {
