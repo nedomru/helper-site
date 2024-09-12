@@ -4,6 +4,7 @@ tableOfContents: false
 ---
 
 import { Image } from "astro:assets";
+import { Tabs, TabItem } from "@astrojs/starlight/components";
 
 import extIcon from "@assets/functions/popup-window/ext-icon.png";
 import window from "@assets/functions/popup-window/window.png";
@@ -11,25 +12,9 @@ import instruments from "@assets/functions/popup-window/instruments.png";
 import mna from "@assets/functions/popup-window/MnA.png";
 import routers from "@assets/functions/popup-window/routers.png";
 
-Для открытия главного окна расширения нажми на иконку расширения:
+<Tabs>
 
-    <Image
-      src={extIcon}
-      alt="Иконка расширения"
-      style="border: 2px solid grey;"
-    />
-
-В окне есть следующие вкладки (список кликабелен):
-
-- [Главная](#главная)
-- [MnA](#главная)
-- [Роутеры](#роутеры)
-- [Инструменты](#инструменты)
-- Настройки
-- ТГ
-
-### Главная
-
+<TabItem label="Главная" icon="setting">
 На вкладке находятся ссылки на часто используемые в работе ресурсы. Ссылки активно модерируются/удаляются/добавляются при необходимости.
 
     <Image
@@ -38,8 +23,9 @@ import routers from "@assets/functions/popup-window/routers.png";
       style="border: 2px solid grey;"
     />
 
-### MnA
+</TabItem>
 
+<TabItem label="MnA" icon="setting">
 Вкладка содержит таблицу с информацией по типам подключения и авторизации по всем партнерским провайдерам.
 
 Таблица:
@@ -51,8 +37,9 @@ import routers from "@assets/functions/popup-window/routers.png";
 
 <Image src={mna} alt="Вкладка MnA" style="border: 2px solid grey;" />
 
-### Роутеры
+</TabItem>
 
+<TabItem label="Роутеры" icon="setting">
 Вкладка содержит таблицу часто используемых клиентских роутеров, ссылки на их настройки в БЗ и на сайте.
 
 Таблица:
@@ -69,8 +56,9 @@ import routers from "@assets/functions/popup-window/routers.png";
 
 <Image src={routers} alt="Вкладка Роутеры" style="border: 2px solid grey;" />
 
-### Инструменты
+</TabItem>
 
+<TabItem label="Инструменты" icon="setting">
 На вкладке находятся встроенные для удобства в расширение дополнительные инструменты.
 
 **Проверка MAC-адреса** - MAC проверяет через
@@ -96,3 +84,7 @@ https://clck.ru/--?url=${Link}
   alt="Вкладка Инструменты"
   style="border: 2px solid grey;"
 />
+
+</TabItem>
+
+</Tabs>
