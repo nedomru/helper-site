@@ -32,7 +32,7 @@ export default defineConfig({
         { label: "🏠 Главная", link: "/" },
         { label: "👋 База", link: "/wiki" },
         {
-          label: "Инструкции",
+          label: "Руководства",
           items: [
             { slug: "wiki/instructions/setup" },
             { slug: "wiki/instructions/open-settings" },
@@ -40,7 +40,7 @@ export default defineConfig({
           ],
         },
         {
-          label: "Функции",
+          label: "Функционал",
           items: [
             { slug: "wiki/functions/popup-window" },
             { slug: "wiki/functions/settings" },
