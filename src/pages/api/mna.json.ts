@@ -146,6 +146,12 @@ export async function GET({ params, request }) {
           connection: "Ethernet",
           link: "https://clever.ertelecom.ru/content/space/4/folder/582/article/2646",
         },
+        {
+          name: "НТС (Томск)",
+          authorization: "IPoE DHCP",
+          connection: "Ethernet",
+          link: "https://clever.ertelecom.ru/content/space/4/article/3648",
+        },
       ],
     })
   );
