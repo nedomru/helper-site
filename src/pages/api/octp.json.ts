@@ -1,5 +1,21 @@
-export async function GET({ params, request }) {
+import { config } from "dotenv";
+
+// Загружаем переменные окружения из .env файла
+config();
+
+export async function GET() {
   const token = process.env.TELEGRAM_BOT_TOKEN;
+
+  if (!token) {
+    return new Response(
+      JSON.stringify({
+        status: "missing token",
+      }),
+
+      { status: 500 }
+    );
+  }
+
   const response = await fetch(
     `https://api.telegram.org/bot${token}/getUpdates?offset=-1`
   );
@@ -27,9 +43,11 @@ export async function GET({ params, request }) {
 
   return new Response(
     JSON.stringify({
-      status: "ok",
       date: channelPost.date,
       text: caption,
-    })
+    }),
+    {
+      status: 200,
+    }
   );
 }
