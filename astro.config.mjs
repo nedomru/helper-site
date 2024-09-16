@@ -47,6 +47,14 @@ export default defineConfig({
             { slug: "wiki/functions/settings" },
           ],
         },
+        {
+          label: "API",
+          items: [{ slug: "wiki/api/mna" }, { slug: "wiki/api/routers" }],
+        },
+        {
+          label: "Версии",
+          items: [{ slug: "wiki/versions/2-7" }, { slug: "wiki/versions/2-6" }],
+        },
       ],
       plugins: [
         starlightImageZoom({

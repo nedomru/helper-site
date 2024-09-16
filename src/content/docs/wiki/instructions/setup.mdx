@@ -25,6 +25,7 @@ import continueInstallButton from "@assets/instructions/setup/continueInstallBut
       src={installButton}
       alt="Вкладка АРМ"
       style="border: 2px solid grey;"
+      loading="eager"
     />
 
 3.  Нажимаем **Продолжить установку**:
@@ -33,11 +34,17 @@ import continueInstallButton from "@assets/instructions/setup/continueInstallBut
       src={continueInstallButton}
       alt="Вкладка АРМ"
       style="border: 2px solid grey;"
+      loading="eager"
     />
 
 4.  Нажимаем **Добавить**
 
-    <Image src={addButton} alt="Вкладка АРМ" style="border: 2px solid grey;" />
+    <Image
+      src={addButton}
+      alt="Вкладка АРМ"
+      loading="lazy"
+      style="border: 2px solid grey;"
+    />
 
 </TabItem>
 

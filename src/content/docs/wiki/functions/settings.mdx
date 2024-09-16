@@ -58,10 +58,20 @@ import highlights from "@assets/functions/settings/arm-highlights.png";
 
 - Темная тема включена
 
-  <Image src={darkTheme} alt="Темная тема" style="border: 2px solid grey;" />
+  <Image
+    src={darkTheme}
+    alt="Темная тема"
+    loading="eager"
+    style="border: 2px solid grey;"
+  />
 
 - Темная тема выключена
-  <Image src={lightTheme} alt="Светлая тема" style="border: 2px solid grey;" />
+  <Image
+    src={lightTheme}
+    alt="Светлая тема"
+    loading="lazy"
+    style="border: 2px solid grey;"
+  />
 
 </details>
 
@@ -273,6 +283,7 @@ import highlights from "@assets/functions/settings/arm-highlights.png";
       src={fbeditreq}
       alt="Особый клиент"
       style="border: 2px solid grey;"
+      loading="eager"
     />
 
     </details>
@@ -416,6 +427,7 @@ import highlights from "@assets/functions/settings/arm-highlights.png";
       src={highlights}
       alt="Подсветка обращений"
       style="border: 2px solid grey;"
+      loading="eager"
     />
 
 </details>
