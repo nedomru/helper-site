@@ -1,0 +1,111 @@
+---
+title: 2.7 Release
+---
+
+import { Image } from "astro:assets";
+import filter from "@assets/versions/2-7/session-filter.png";
+import premium from "@assets/versions/2-7/check-premium.png";
+import lastDay from "@assets/versions/2-7/set-one-day.png";
+import fastButtons from "@assets/versions/2-7/fast-buttons.png";
+import lineStatusGreen from "@assets/versions/2-7/lineStatus-green.png";
+
+:::note
+Версия еще недоступна для установки.
+:::
+
+## Новое
+
+- <details>
+    <summary>Добавлен функционал фильтрации причин завершения</summary>
+    В сессиях за период появляется поле для фильтрации причин завершения.
+    Пример:
+    <Image
+      src={filter}
+      alt="Фильтр сессий за период"
+      loading="eagerly"
+      style="border: 2px solid grey;"
+    />
+  </details>
+- <details>
+    <summary>
+      Добавлен функционал выбора последних суток в сессиях за период
+    </summary>
+    В сессиях за период появляется кнопка для поиска сессий за последние сутки.
+    Пример:
+    <Image
+      src={lastDay}
+      alt="Выбор последних суток"
+      loading="eagerly"
+      style="border: 2px solid grey;"
+    />
+  </details>
+- <details>
+    <summary>Добавлена проверка премии в инструменты</summary>
+    Функция находится во вкладки инструменты. Требуется выбрать свое направление
+    и нажать **Проверить**.
+    <Image
+      src={premium}
+      alt="Проверка премии"
+      loading="eagerly"
+      width="400px"
+      style="border: 2px solid grey;"
+    />
+  </details>
+- <details>
+    <summary>Добавлена динамическая загрузка роутеров</summary>
+    Роутеры в окне расширения теперь загружаются динамически при открытии окна
+    расширения беря информацию с API (описан
+    [здесь](/domru-helper/wiki/api/routers))
+  </details>
+- <details>
+    <summary>Добавлена динамическая загрузка MnA-провайдеров</summary>
+    Провайдеры в окне расширения теперь загружаются динамически при открытии
+    окна расширения беря информацию с API (описан
+    [здесь](/domru-helper/wiki/api/mna))
+  </details>
+- <details>
+    <summary>Добавлена опциональность быстрых кнопок в Генезисе</summary>
+    Кнопки стали опциональными так же, как кнопки на Линии. Настраивается через
+    `Настройки - Генезис - Быстрые кнопки`
+    <Image
+      src={fastButtons}
+      alt="Быстрые кнопки Генезиса"
+      loading="eagerly"
+      width="auto"
+      style="border: 2px solid grey;"
+    />
+  </details>
+- <details>
+    <summary>Добавлено сохранение состояния вкладок</summary>
+    Расширение теперь сохраняет последнюю открытую вкладку и, при повторном
+    открытии окна расширения, открывается сохраненная вкладка.
+  </details>
+- <details>
+
+            <summary>Добавлено отображение статуса линии в Генезис</summary>
+
+  Функция включается в `Настройки - Генезис - Отображать статус линии`<br/>
+  Поддерживается статус линии НЦК1 и НЦК2<br/>
+  Пример, **очереди нет**:
+
+  <Image
+    src={lineStatusGreen}
+    alt="Статус линии, очереди нет"
+    loading="eagerly"
+    style="border: 2px solid grey;"
+  />
+
+          </details>
+
+## Доработки
+
+- Обновлена технология авторизации Дианета
+- Оптимизировано копирование текста в АРМе
+- Оптимизировано скрытие вкладок в АРМе
+- Обновлена иконка расширения
+- Обновлена ссылка на телеграм канал
+
+## Баг-фиксы
+
+- Исправлены ссылки на тесты и электронные курсы
+- Удалено скрытие поля поиска оператора

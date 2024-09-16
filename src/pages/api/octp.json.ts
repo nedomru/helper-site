@@ -1,6 +1,5 @@
 import { config } from "dotenv";
 
-// Загружаем переменные окружения из .env файла
 config();
 
 export async function GET() {
