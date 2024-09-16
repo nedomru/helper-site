@@ -1,0 +1,50 @@
+---
+title: Проверка MAC
+tableOfContents: True
+---
+
+## Содержание
+
+В качестве сервиса для проверки MAC используется https://maclookup.app <br/>
+Принимаемые форматы:
+
+- AA:BB:CC:DD:EE
+- aa:bb:cc:dd:ee
+- aabbccddee
+
+| Данные | Авторизация | Запрос |
+| ------ | ----------- | ------ |
+| JSON   | Нет         | GET    |
+
+## Ссылка
+
+`https://api.maclookup.app/v2/macs/${mac_для_проверки}`
+
+## Пример ответа
+
+```json
+{
+  "success": true,
+  "found": true,
+  "macPrefix": "04D4C4",
+  "company": "ASUSTek COMPUTER INC.",
+  "address": "15,Li-Te Rd., Peitou, Taipei 112, Taiwan, Taipei Taiwan 112, TW",
+  "country": "TW",
+  "blockStart": "04D4C4000000",
+  "blockEnd": "04D4C4FFFFFF",
+  "blockSize": 16777215,
+  "blockType": "MA-L",
+  "updated": "2018-12-16",
+  "isRand": false,
+  "isPrivate": false
+}
+```
+
+## Статус сервера
+
+- 200 - Все ок
+- 400 - Клиентская ошибка, некорректный синтакс.
+- 401 - Некорректный ключ api
+- 429 - Слишком много запросов
+
+Допускается 2 HTTP-запроса в секунду. 10к запросов в день
