@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.9.3",
     "@astrojs/starlight": "^0.27.1",
     "astro": "^4.15.4",
+    "dotenv": "^16.4.5",
     "starlight-image-zoom": "^0.8.0",
     "typescript": "^5.5.4"
   }
