@@ -48,8 +48,13 @@ export default defineConfig({
           ],
         },
         {
-          label: "API",
-          items: [{ slug: "wiki/api/mna" }, { slug: "wiki/api/routers" }],
+          label: "Используемые API",
+          items: [
+            { slug: "wiki/api/mna" },
+            { slug: "wiki/api/routers" },
+            { slug: "wiki/api/ip-check" },
+            { slug: "wiki/api/mac-check" },
+          ],
         },
         {
           label: "Версии",
