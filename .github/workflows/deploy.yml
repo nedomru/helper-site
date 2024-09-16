@@ -16,6 +16,8 @@ permissions:
 
 jobs:
   build:
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }} 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
@@ -37,5 +39,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }} 
