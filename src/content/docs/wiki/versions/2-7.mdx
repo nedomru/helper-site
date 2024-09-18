@@ -8,6 +8,8 @@ import premium from "@assets/versions/2-7/check-premium.png";
 import lastDay from "@assets/versions/2-7/set-one-day.png";
 import fastButtons from "@assets/versions/2-7/fast-buttons.png";
 import lineStatusGreen from "@assets/versions/2-7/lineStatus-green.png";
+import cancelSz from "@assets/versions/2-7/cancel-sz.png";
+import szvg from "@assets/versions/2-7/szvg.png";
 
 :::note
 Версия еще недоступна для установки.
@@ -15,6 +17,27 @@ import lineStatusGreen from "@assets/versions/2-7/lineStatus-green.png";
 
 ## Новое
 
+- <details>
+    <summary>Добавлена подсветка СЗ вне графика</summary>
+    Управление цветом подсветки через `Настройки - АРМ - Подсветка обращений`.
+    Стандартный цвет - <span style="background-color:#FF00FF">#FF00FF</span>.
+    <Image
+      src={szvg}
+      alt="Отмена СЗ"
+      loading="eagerly"
+      style="border: 2px solid grey;"
+    />
+  </details>
+- <details>
+    <summary>Добавлена Отмена СЗ в быстрые кнопки АРМа</summary>
+    Управление кнопками через `Настройки - АРМ - Быстрые кнопки - Левый фрейм`.
+    <Image
+      src={cancelSz}
+      alt="Отмена СЗ"
+      loading="eagerly"
+      style="border: 2px solid grey;"
+    />
+  </details>
 - <details>
     <summary>Добавлен функционал фильтрации причин завершения</summary>
     В сессиях за период появляется поле для фильтрации причин завершения.
