@@ -2,7 +2,7 @@ import { config } from "dotenv";
 
 config();
 
-export async function GET() {
+export async function POST() {
   const token = process.env.TELEGRAM_BOT_TOKEN;
 
   if (!token) {
