@@ -1,4 +1,4 @@
-export async function GET({ params, request }) {
+export async function GET() {
   return new Response(
     JSON.stringify({
       routers: [
@@ -421,7 +421,7 @@ export async function GET({ params, request }) {
           Channels: "Нет",
           Settings: "88.1",
           BZ: "https://clever.ertelecom.ru/content/space/4/article/2082?text=Mikrotik",
-          Emulator: "Нет",
+          Emulator: "https://demo.mt.lv/webfig/#System:Password.Change_Now",
         },
         {
           Name: "MikroTik hAP Lite",
@@ -433,7 +433,7 @@ export async function GET({ params, request }) {
             "https://dom.ru/service/knowledgebase/instruktsii-po-oborudovaniyu/router__Mikrotik_011",
           Settings: "88.1",
           BZ: "https://clever.ertelecom.ru/content/space/4/article/2082?text=MikroTik+hAP+Lite+TC",
-          Emulator: "Нет",
+          Emulator: "https://demo.mt.lv/webfig/#System:Password.Change_Now",
         },
         {
           Name: "NetGear WNR3500L (серый)",
