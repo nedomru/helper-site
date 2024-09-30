@@ -194,7 +194,7 @@ export async function GET({ params, request }) {
           Name: "Keenetic AlR/Zyxel VIVA/Zyxel CITY/Zyxel START",
           PPPoE:
             "http://kbn.ertelecom.ru/download/attachments/27963307/Zyxel%20%D0%BD%D0%BE%D0%B2%D0%B0%D1%8F%20%D0%BF%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B0.pdf",
-          DHCP: "нет",
+          DHCP: "Нет",
           IPoE: "http://kbn.ertelecom.ru/download/attachments/27963307/Zyxel%20Air%20%D0%BF%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B0.pdf?version=1&modificationDate=1558793480808&api=v2",
           Channels: "Нет",
           Settings: "1.1/my.keenetic.net",
@@ -223,7 +223,7 @@ export async function GET({ params, request }) {
             "https://dom.ru/service/knowledgebase/instruktsii-po-oborudovaniyu/router__Xiaomi_Mi-Router_008",
           Settings: "31.1/miwifi.com/router.miwifi.com",
           BZ: "https://clever.ertelecom.ru/content/space/4/bookmark/34/article/2509?text=Xiaomi+Mi+Wi-Fi+Router",
-          Emulator: "нет",
+          Emulator: "Нет",
         },
         {
           Name: "ASUS RT-AC66U/RT-N66U/RT-N65U Темная",
