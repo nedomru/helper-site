@@ -1,4 +1,4 @@
-export async function GET({ params, request }) {
+export async function GET() {
   return new Response(
     JSON.stringify({
       mna: [
@@ -10,20 +10,20 @@ export async function GET({ params, request }) {
         },
         {
           name: "Тура-Telecom",
-          authorization: "PPPoE, DHCP opt82",
+          authorization: "DHCP / PPPoE",
           connection: "Ethernet",
           link: "https://clever.ertelecom.ru/content/space/4/folder/582/article/3280",
         },
         {
           name: "Ярославль Телесеть (ЯТС)",
-          authorization: "PPPoE, DHCP opt82",
+          authorization: "DHCP / PPPoE",
           connection: "Ethernet",
           link: "https://clever.ertelecom.ru/content/space/4/folder/582/article/3136",
         },
         {
           name: "Иркнет",
           authorization: "PPPoE",
-          connection: "ADSL, GPON, FTTH",
+          connection: "ADSL / GPON / FTTH",
           link: "https://clever.ertelecom.ru/content/space/4/folder/582/article/3192",
         },
         {
@@ -34,26 +34,26 @@ export async function GET({ params, request }) {
         },
         {
           name: "Коламбия Телеком",
-          authorization: "PPPoE, DHCP opt82",
-          connection: "Ethernet, ADSL",
+          authorization: "DHCP / PPPoE",
+          connection: "Ethernet / ADSL",
           link: "https://clever.ertelecom.ru/content/space/4/folder/582/article/2761",
         },
         {
           name: "Телемир (Липецк)",
-          authorization: "PPPoE, DHCP opt82",
+          authorization: "DHCP / PPPoE",
           connection: "Ethernet",
           link: "https://clever.ertelecom.ru/content/space/4/article/3191",
         },
         {
           name: "Акадо (СПБ)",
-          authorization: "DHCP MAC+VLAN",
+          authorization: "DHCP mac+vlan",
           connection: "Ethernet",
           link: "https://clever.ertelecom.ru/content/space/4/folder/582/article/3291",
         },
         {
           name: "БКС (Брянск)",
-          authorization: "DHCP MAC+VLAN, DHCP opt82",
-          connection: "Ethernet, PON",
+          authorization: "DHCP mac+vlan / DHCP",
+          connection: "Ethernet / PON",
           link: "https://clever.ertelecom.ru/content/space/4/folder/582/article/2760",
         },
         {
@@ -64,7 +64,7 @@ export async function GET({ params, request }) {
         },
         {
           name: "Конвекс/ТКС (ЕКБ)",
-          authorization: "IPoE Static, PPTP (общежития)",
+          authorization: "IPoE Static / PPTP (общежития)",
           connection: "Ethernet",
           link: "https://clever.ertelecom.ru/content/space/4/folder/582/article/2769",
         },
@@ -82,14 +82,14 @@ export async function GET({ params, request }) {
         },
         {
           name: "СибТелеКом (СТК)",
-          authorization: "PPPoE, DHCP opt82",
-          connection: "Ethernet, ADSL",
+          authorization: "DHCP / PPPoE",
+          connection: "Ethernet / ADSL",
           link: "https://clever.ertelecom.ru/content/space/4/folder/582/article/3121",
         },
         {
           name: "Westcall / N-Link (Рязань)",
-          authorization: "IPoE DHCP, PPPoE",
-          connection: "Ethernet, ADSL, PON",
+          authorization: "DHCP / PPPoE",
+          connection: "Ethernet / ADSL / PON",
           link: "https://clever.ertelecom.ru/content/space/4/folder/582/article/3288",
         },
         {
@@ -106,43 +106,43 @@ export async function GET({ params, request }) {
         },
         {
           name: "Westcall (СПб)",
-          authorization: "DHCP MAC+VLAN",
+          authorization: "DHCP mac+vlan",
           connection: "Ethernet",
           link: "https://clever.ertelecom.ru/content/space/4/folder/582/article/3286",
         },
         {
           name: "Кредолинк (СПб)",
-          authorization: "DHCP MAC+VLAN",
+          authorization: "DHCP mac+vlan",
           connection: "Ethernet",
           link: "https://clever.ertelecom.ru/content/space/4/folder/582/article/3283",
         },
         {
           name: "MSNet (СПБ)",
-          authorization: "DHCP MAC+VLAN",
+          authorization: "DHCP mac+vlan",
           connection: "Ethernet",
           link: "https://clever.ertelecom.ru/content/space/4/folder/582/article/3287",
         },
         {
           name: "RiNet",
-          authorization: "DHCP MAC+VLAN",
+          authorization: "DHCP mac+vlan",
           connection: "Ethernet",
           link: "https://clever.ertelecom.ru/content/space/4/folder/582/article/3246",
         },
         {
           name: "Стрела (Димитровград)",
-          authorization: "DHCP opt82",
+          authorization: "DHCP",
           connection: "Ethernet",
           link: "https://clever.ertelecom.ru/content/space/4/folder/582/article/3172",
         },
         {
           name: "С-Телеком МСК (Самолет)",
-          authorization: "PPPoE, DHCP opt82",
+          authorization: "DHCP / PPPoE",
           connection: "Ethernet",
           link: "https://clever.ertelecom.ru/content/space/4/folder/582/article/3238",
         },
         {
           name: "Дианэт (Барнаул и область)",
-          authorization: "PPPoE, L2TP",
+          authorization: "PPPoE / L2TP",
           connection: "Ethernet",
           link: "https://clever.ertelecom.ru/content/space/4/folder/582/article/2646",
         },
@@ -151,6 +151,12 @@ export async function GET({ params, request }) {
           authorization: "IPoE DHCP",
           connection: "Ethernet",
           link: "https://clever.ertelecom.ru/content/space/4/article/3648",
+        },
+        {
+          name: "Кроникс/Rinet",
+          authorization: "DHCP / DHCP mac+vlan",
+          connection: "Ethernet",
+          link: "https://clever.ertelecom.ru/content/space/4/article/3246/page/3",
         },
       ],
     })
