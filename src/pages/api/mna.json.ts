@@ -123,12 +123,6 @@ export async function GET() {
           link: "https://clever.ertelecom.ru/content/space/4/folder/582/article/3287",
         },
         {
-          name: "RiNet",
-          authorization: "DHCP mac+vlan",
-          connection: "Ethernet",
-          link: "https://clever.ertelecom.ru/content/space/4/folder/582/article/3246",
-        },
-        {
           name: "Стрела (Димитровград)",
           authorization: "DHCP",
           connection: "Ethernet",
