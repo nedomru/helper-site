@@ -6,8 +6,8 @@ import starlightImageZoom from "starlight-image-zoom";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://authfailed.github.io",
-  base: "/domru-helper",
+  site: "https://helper.chrsnv.ru",
+  base: "/",
   integrations: [
     starlight({
       title: "Вика по Хелперу",
