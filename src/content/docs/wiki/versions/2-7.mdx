@@ -4,6 +4,7 @@ title: 2.7 Release
 
 import { Image } from "astro:assets";
 import filter from "@assets/versions/2-7/session-filter.png";
+import table from "@assets/versions/2-7/table.png";
 import premium from "@assets/versions/2-7/check-premium.png";
 import lastDay from "@assets/versions/2-7/set-one-day.png";
 import fastButtons from "@assets/versions/2-7/fast-buttons.png";
@@ -15,12 +16,41 @@ import szvg from "@assets/versions/2-7/szvg.png";
 Версия еще недоступна для установки.
 :::
 
-## Новое
+## Изменения
+
+### Генезис
 
 - <details>
-    <summary>Добавлена подсветка СЗ вне графика</summary>
-    Управление цветом подсветки через `Настройки - АРМ - Подсветка обращений`.
-    Стандартный цвет - <span style="background-color:#FF00FF">#FF00FF</span>.
+    <summary>Статус линии</summary>
+    Функция включается в `Настройки - Генезис - Отображать статус линии`. Поддерживается
+    статус линии НЦК1 и НЦК2. Пример, **очереди нет**:
+    <Image
+      src={lineStatusGreen}
+      alt="Статус линии, очереди нет"
+      loading="eagerly"
+      style="border: 2px solid grey;"
+    />
+  </details>
+- <details>
+    <summary>Опциональность быстрых кнопок в Генезисе</summary>
+    Кнопки стали опциональными так же, как кнопки на Линии. Настраивается через `Настройки
+    - Генезис - Быстрые кнопки`.
+    <Image
+      src={fastButtons}
+      alt="Быстрые кнопки Генезиса"
+      loading="eagerly"
+      width="auto"
+      style="border: 2px solid grey;"/>
+  </details>
+
+### АРМ
+
+#### Общее
+
+- <details>
+    <summary>Подсветка СЗ вне графика</summary>
+    Управление цветом подсветки через `Настройки - АРМ - Подсветка обращений`. Стандартный
+    цвет - <span style="background-color:#FF00FF">#FF00FF</span>.
     <Image
       src={szvg}
       alt="Отмена СЗ"
@@ -29,7 +59,7 @@ import szvg from "@assets/versions/2-7/szvg.png";
     />
   </details>
 - <details>
-    <summary>Добавлена Отмена СЗ в быстрые кнопки АРМа</summary>
+    <summary>Отмена СЗ в быстрые кнопки АРМа</summary>
     Управление кнопками через `Настройки - АРМ - Быстрые кнопки - Левый фрейм`.
     <Image
       src={cancelSz}
@@ -38,10 +68,12 @@ import szvg from "@assets/versions/2-7/szvg.png";
       style="border: 2px solid grey;"
     />
   </details>
+
+#### Сессии за период
+
 - <details>
-    <summary>Добавлен функционал фильтрации причин завершения</summary>
-    В сессиях за период появляется поле для фильтрации причин завершения.
-    Пример:
+    <summary>Фильтр по причине завершения</summary>
+    В сессиях за период появляется поле для фильтрации причин завершения. Пример:
     <Image
       src={filter}
       alt="Фильтр сессий за период"
@@ -50,11 +82,8 @@ import szvg from "@assets/versions/2-7/szvg.png";
     />
   </details>
 - <details>
-    <summary>
-      Добавлен функционал выбора последних суток в сессиях за период
-    </summary>
-    В сессиях за период появляется кнопка для поиска сессий за последние сутки.
-    Пример:
+    <summary>Кнопка выбора последних суток в сессиях за период</summary>
+    В сессиях за период появляется кнопка для поиска сессий за последние сутки. Пример:
     <Image
       src={lastDay}
       alt="Выбор последних суток"
@@ -63,7 +92,21 @@ import szvg from "@assets/versions/2-7/szvg.png";
     />
   </details>
 - <details>
-    <summary>Добавлена проверка премии в инструменты</summary>
+    <summary>Таблица разрывов в сессиях за период</summary>
+    В сессиях за период появляется таблица с кол-вом разрывов за выбранный промежуток
+    времени. Пример:
+    <Image
+      src={table}
+      alt="Таблица разрывов"
+      loading="eagerly"
+      style="border: 2px solid grey;"
+    />
+  </details>
+
+### Окно расширения
+
+- <details>
+    <summary>Проверка премии</summary>
     Функция находится во вкладки инструменты. Требуется выбрать свое направление
     и нажать **Проверить**.
     <Image
@@ -75,50 +118,21 @@ import szvg from "@assets/versions/2-7/szvg.png";
     />
   </details>
 - <details>
-    <summary>Добавлена динамическая загрузка роутеров</summary>
-    Роутеры в окне расширения теперь загружаются динамически при открытии окна
-    расширения беря информацию с API (описан
-    [здесь](/domru-helper/wiki/api/routers))
+    <summary>Динамическая загрузка роутеров</summary>
+    Роутеры в окне расширения теперь загружаются динамически при открытии окна расширения,
+    беря информацию с API (описан [здесь](/wiki/api/routers)).
   </details>
 - <details>
-    <summary>Добавлена динамическая загрузка MnA-провайдеров</summary>
-    Провайдеры в окне расширения теперь загружаются динамически при открытии
-    окна расширения беря информацию с API (описан
-    [здесь](/domru-helper/wiki/api/mna))
+    <summary>Динамическая загрузка MnA-провайдеров</summary>
+    Провайдеры в окне расширения теперь загружаются динамически при открытии окна
+    расширения, беря информацию с API (описан [здесь](/wiki/api/mna)).
   </details>
-- <details>
-    <summary>Добавлена опциональность быстрых кнопок в Генезисе</summary>
-    Кнопки стали опциональными так же, как кнопки на Линии. Настраивается через
-    `Настройки - Генезис - Быстрые кнопки`
-    <Image
-      src={fastButtons}
-      alt="Быстрые кнопки Генезиса"
-      loading="eagerly"
-      width="auto"
-      style="border: 2px solid grey;"
-    />
-  </details>
+
 - <details>
     <summary>Добавлено сохранение состояния вкладок</summary>
-    Расширение теперь сохраняет последнюю открытую вкладку и, при повторном
-    открытии окна расширения, открывается сохраненная вкладка.
+    Расширение теперь сохраняет последнюю открытую вкладку и, при повторном открытии
+    окна расширения, открывается сохраненная вкладка.
   </details>
-- <details>
-
-            <summary>Добавлено отображение статуса линии в Генезис</summary>
-
-  Функция включается в `Настройки - Генезис - Отображать статус линии`<br/>
-  Поддерживается статус линии НЦК1 и НЦК2<br/>
-  Пример, **очереди нет**:
-
-  <Image
-    src={lineStatusGreen}
-    alt="Статус линии, очереди нет"
-    loading="eagerly"
-    style="border: 2px solid grey;"
-  />
-
-          </details>
 
 ## Доработки
 
