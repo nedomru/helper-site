@@ -11,138 +11,123 @@ import fastButtons from "@assets/versions/2-7/fast-buttons.png";
 import lineStatusGreen from "@assets/versions/2-7/lineStatus-green.png";
 import cancelSz from "@assets/versions/2-7/cancel-sz.png";
 import szvg from "@assets/versions/2-7/szvg.png";
-
-:::note
-Версия еще недоступна для установки.
-:::
+import fbleftframe from "@assets/versions/2-7/fb_leftframe.png";
+import fbleftframe_open from "@assets/versions/2-7/fbleftframe_open.png";
+import chatcolors from "@assets/versions/2-7/chatcolors.png";
+import chatsounds from "@assets/versions/2-7/chatsounds.png";
 
 ## Изменения
 
 ### Генезис
-
-- <details>
+-   <details>
     <summary>Статус линии</summary>
-    Функция включается в `Настройки - Генезис - Отображать статус линии`. Поддерживается
-    статус линии НЦК1 и НЦК2. Пример, **очереди нет**:
-    <Image
-      src={lineStatusGreen}
-      alt="Статус линии, очереди нет"
-      loading="eagerly"
-      style="border: 2px solid grey;"
-    />
-  </details>
-- <details>
+    Поддерживается статус линии НЦК1 и НЦК2. Пример, **очереди нет**:
+    <Image src={lineStatusGreen} alt="Статус линии, очереди нет" loading="eagerly" style="border: 2px solid grey;"/>
+    </details>
+
+-   <details>
+    <summary>Цвета в чате</summary>
+    Добавлен выбор цветов в чате: имя клиента, сообщение клиента, имя оператора, сообщение оператора.
+    <Image src={chatcolors} alt="Цвета в чате" loading="eagerly" style="border: 2px solid grey;"/>
+    </details>
+
+-   <details>
+    <summary>Звуки в чате</summary>
+    Добавлен выбор звуков в чате: звук нового сообщения, звук нового чата.
+    <Image src={chatsounds} alt="Звуки в чате" loading="eagerly" style="border: 2px solid grey;"/>
+    </details>
+
+-   <details>
     <summary>Опциональность быстрых кнопок в Генезисе</summary>
-    Кнопки стали опциональными так же, как кнопки на Линии. Настраивается через `Настройки
-    - Генезис - Быстрые кнопки`.
-    <Image
-      src={fastButtons}
-      alt="Быстрые кнопки Генезиса"
-      loading="eagerly"
-      width="auto"
-      style="border: 2px solid grey;"/>
-  </details>
+    Кнопки стали опциональными так же, как кнопки на Линии. Настраивается через `Настройки - Генезис - Быстрые кнопки`.
+    <Image src={fastButtons} alt="Быстрые кнопки Генезиса" loading="eagerly" width="auto" style="border: 2px solid grey;"/>
+    </details>
 
 ### АРМ
 
 #### Общее
 
-- <details>
+-   <details>
     <summary>Подсветка СЗ вне графика</summary>
     Управление цветом подсветки через `Настройки - АРМ - Подсветка обращений`. Стандартный
     цвет - <span style="background-color:#FF00FF">#FF00FF</span>.
-    <Image
-      src={szvg}
-      alt="Отмена СЗ"
-      loading="eagerly"
-      style="border: 2px solid grey;"
-    />
-  </details>
-- <details>
+    <Image src={szvg} alt="Отмена СЗ" loading="eagerly" style="border: 2px solid grey;"/>
+    </details>
+
+-   <details>
     <summary>Отмена СЗ в быстрые кнопки АРМа</summary>
     Управление кнопками через `Настройки - АРМ - Быстрые кнопки - Левый фрейм`.
-    <Image
-      src={cancelSz}
-      alt="Отмена СЗ"
-      loading="eagerly"
-      style="border: 2px solid grey;"
-    />
-  </details>
+    <Image src={cancelSz} alt="Отмена СЗ" loading="eagerly" style="border: 2px solid grey;" />
+    </details>
+
+-   <details>
+    <summary>Категории быстрых кнопок в левом фрейме</summary>
+    В левый фрейм добавлены категории быстрых кнопок для удобного отображения большого списка кнопок.
+    <Image src={fbleftframe} alt="Левый фрейм" loading="eagerly" style="border: 2px solid grey;" />
+    <Image src={fbleftframe_open} alt="Левый фрейм, открытый" loading="eagerly" style="border: 2px solid grey;" />
+    </details>
 
 #### Сессии за период
 
-- <details>
+-   <details>
     <summary>Фильтр по причине завершения</summary>
     В сессиях за период появляется поле для фильтрации причин завершения. Пример:
-    <Image
-      src={filter}
-      alt="Фильтр сессий за период"
-      loading="eagerly"
-      style="border: 2px solid grey;"
-    />
-  </details>
-- <details>
+    <Image src={filter} alt="Фильтр сессий за период" loading="eagerly" style="border: 2px solid grey;" />
+    </details>
+
+-   <details>
     <summary>Кнопка выбора последних суток в сессиях за период</summary>
     В сессиях за период появляется кнопка для поиска сессий за последние сутки. Пример:
-    <Image
-      src={lastDay}
-      alt="Выбор последних суток"
-      loading="eagerly"
-      style="border: 2px solid grey;"
-    />
-  </details>
-- <details>
+    <Image src={lastDay} alt="Выбор последних суток" loading="eagerly" style="border: 2px solid grey;" />
+    </details>
+
+-   <details>
     <summary>Таблица разрывов в сессиях за период</summary>
     В сессиях за период появляется таблица с кол-вом разрывов за выбранный промежуток
     времени. Пример:
-    <Image
-      src={table}
-      alt="Таблица разрывов"
-      loading="eagerly"
-      style="border: 2px solid grey;"
-    />
-  </details>
+    <Image src={table} alt="Таблица разрывов" loading="eagerly" style="border: 2px solid grey;" />
+    </details>
 
 ### Окно расширения
 
-- <details>
+-   <details>
     <summary>Проверка премии</summary>
     Функция находится во вкладки инструменты. Требуется выбрать свое направление
     и нажать **Проверить**.
-    <Image
-      src={premium}
-      alt="Проверка премии"
-      loading="eagerly"
-      width="400px"
-      style="border: 2px solid grey;"
-    />
-  </details>
-- <details>
+    <Image src={premium} alt="Проверка премии" loading="eagerly" width="400px" style="border: 2px solid grey;" />
+    </details>
+
+-   <details>
     <summary>Динамическая загрузка роутеров</summary>
     Роутеры в окне расширения теперь загружаются динамически при открытии окна расширения,
     беря информацию с API (описан [здесь](/wiki/api/routers)).
-  </details>
-- <details>
+    </details>
+
+-   <details>
     <summary>Динамическая загрузка MnA-провайдеров</summary>
     Провайдеры в окне расширения теперь загружаются динамически при открытии окна
     расширения, беря информацию с API (описан [здесь](/wiki/api/mna)).
-  </details>
+    </details>
 
-- <details>
+-   <details>
     <summary>Добавлено сохранение состояния вкладок</summary>
     Расширение теперь сохраняет последнюю открытую вкладку и, при повторном открытии
     окна расширения, открывается сохраненная вкладка.
-  </details>
+    </details>
+
+-   <details>
+    <summary>Добавлены новые ссылки</summary>
+    Ссылка на Отчет по продажам и на Экономическая справку для проверки начислений за продажи.
+    </details>
 
 ## Доработки
 
-- Обновлена технология авторизации Дианета
 - Оптимизировано копирование текста в АРМе
 - Оптимизировано скрытие вкладок в АРМе
 - Обновлена иконка расширения
-- Обновлена ссылка на телеграм канал
-- Удалена опция скрытия заголовка чата
 - Проведен рефакторинг кода
+- Удалена ссылка на ТГ из расширения
+- Удалена опция скрытия заголовка чата
 
 ## Баг-фиксы
 
