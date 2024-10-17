@@ -3,11 +3,18 @@ import { defineConfig } from "astro/config";
 
 import starlight from "@astrojs/starlight";
 import starlightImageZoom from "starlight-image-zoom";
+import vercel from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'server',
+  adapter: vercel({
+    webAnalytics: { enabled: true }
+  }),
+
   site: "https://helper.chrsnv.ru",
   base: "/",
+
   integrations: [
     starlight({
       title: "Вика по Хелперу",
@@ -16,7 +23,6 @@ export default defineConfig({
         src: "./public/logo.png",
       },
       customCss: [
-        // Относительный путь к вашему CSS файлу
         "./src/styles/custom.css",
       ],
       editLink: {
@@ -58,7 +64,7 @@ export default defineConfig({
         },
         {
           label: "Версии",
-          items: [{ slug: "wiki/versions/2-7" }, { slug: "wiki/versions/2-6" }],
+          autogenerate: { directory: "wiki/versions" }
         },
       ],
       plugins: [
