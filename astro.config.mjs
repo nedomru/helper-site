@@ -3,13 +3,13 @@ import { defineConfig } from "astro/config";
 
 import starlight from "@astrojs/starlight";
 import starlightImageZoom from "starlight-image-zoom";
-import vercel from '@astrojs/vercel/serverless';
+import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "hybrid",
-  adapter: vercel({
-    webAnalytics: { enabled: true }
+  output: "server",
+  adapter: node({
+    mode: "standalone"
   }),
 
   site: "https://helper.chrsnv.ru",
