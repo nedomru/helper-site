@@ -1,21 +1,23 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-
 import starlight from "@astrojs/starlight";
 import starlightImageZoom from "starlight-image-zoom";
 import node from "@astrojs/node";
+import cors from 'cors';
 
-// https://astro.build/config
 export default defineConfig({
   output: "server",
   adapter: node({
-    mode: "standalone"
+    mode: "standalone",
+    middleware: [[
+      cors({
+        origin: '*',  // This allows access from browser extensions
+        methods: ['GET'],
+        allowedHeaders: ['Content-Type']
+      }),
+      { order: 'pre' }
+    ]]
   }),
-  server: {
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-    }
-  },
 
   site: "https://helper.chrsnv.ru",
   base: "/",
