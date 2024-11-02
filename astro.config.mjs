@@ -11,6 +11,11 @@ export default defineConfig({
   adapter: node({
     mode: "standalone"
   }),
+  server: {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    }
+  },
 
   site: "https://helper.chrsnv.ru",
   base: "/",
