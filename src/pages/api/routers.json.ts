@@ -676,6 +676,14 @@ export async function GET() {
           Emulator: "Нет",
         },
       ],
-    })
+    }), {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization"
+        }
+      }
   );
 }
