@@ -16,7 +16,7 @@
     "astro": "^4.16.6",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "starlight-image-zoom": "^0.8.0",
+    "starlight-image-zoom": "^0.9.0",
     "typescript": "^5.5.4"
   }
 }
