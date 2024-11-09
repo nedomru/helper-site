@@ -44,6 +44,20 @@ export async function GET() {
                     thumbnail: "https://www.jopi.com/cdn-cgi/image/quality=70,width=256,height=256,f=auto/img/t/go-up-dash.png",
                     iframeUrl: "https://jopi.com/gam/go-up-dash",
                     category: "Экшен"
+                },
+                {
+                    id: 7,
+                    title: "Солитёр",
+                    thumbnail: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/FreeCell_%28Aisleriot_2.31.2%29_ru.png/300px-FreeCell_%28Aisleriot_2.31.2%29_ru.png",
+                    iframeUrl: "https://solitaires-online.com/",
+                    category: "Карты"
+                },
+                {
+                    id: 8,
+                    title: "Змейка",
+                    thumbnail: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/FreeCell_%28Aisleriot_2.31.2%29_ru.png/300px-FreeCell_%28Aisleriot_2.31.2%29_ru.png",
+                    iframeUrl: "https://playsnake.org/",
+                    category: "Змейка"
                 }
             ]
         }), {
