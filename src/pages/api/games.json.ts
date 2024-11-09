@@ -79,13 +79,6 @@ export async function GET() {
                     thumbnail: "https://маджонг.net/media/%D0%BC%D0%B0%D0%B4%D0%B6%D0%BE%D0%BD%D0%B3-%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B9.png",
                     iframeUrl: "https://xn--80agci1ajg.net/",
                     category: "Логика"
-                },
-                {
-                    id: 12,
-                    title: "Реверси",
-                    thumbnail: "https://www.igroved.ru/games/reversi/big/igroved_reversi_03.jpg",
-                    iframeUrl: "https://logic-games.spb.ru/othello/?lang=ru",
-                    category: "Логика"
                 }
             ]
         }), {
