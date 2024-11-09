@@ -22,6 +22,28 @@ export async function GET() {
                     thumbnail: "https://funhtml5games.com/images/mariofps.png",
                     iframeUrl: "https://funhtml5games.com?embed=mariofps",
                     category: "Экшен"
+                },
+                {
+                    id: 4,
+                    title: "Summer Maze",
+                    thumbnail: "https://www.jopi.com/cdn-cgi/image/quality=70,width=256,height=256,f=auto/img/t/summer-maze.png",
+                    iframeUrl: "https://jopi.com/gam/summer-maze",
+                    category: "Пазл"
+
+                },
+                {
+                    id: 5,
+                    title: "Key Quest",
+                    thumbnail: "https://www.jopi.com/cdn-cgi/image/quality=70,width=256,height=256,f=auto/img/t/key-quest.png",
+                    iframeUrl: "https://jopi.com/gam/key-quest",
+                    category: "Квест"
+                },
+                {
+                    id: 6,
+                    title: "Go Up Dash",
+                    thumbnail: "https://www.jopi.com/cdn-cgi/image/quality=70,width=256,height=256,f=auto/img/t/go-up-dash.png",
+                    iframeUrl: "https://jopi.com/gam/go-up-dash",
+                    category: "Экшен"
                 }
             ]
         }), {
