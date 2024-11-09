@@ -63,7 +63,7 @@ export async function GET() {
                     id: 9,
                     title: "Крестики-нолики",
                     thumbnail: "https://static.wikia.nocookie.net/pogod/images/9/90/%D0%9A%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%BA%D0%B8-%D0%BD%D0%BE%D0%BB%D0%B8%D0%BA%D0%B8.png/revision/latest?cb=20190715142427&path-prefix=ru",
-                    iframeUrl: "https://solitaires-online.com/tic-tac-toe/",
+                    iframeUrl: "https://solitaires-online.com/tic-tac-toe/#id=42nti8pdi7,no-nav,no-article,no-feedback,no-ads",
                     category: "Логика"
                 },
                 {
