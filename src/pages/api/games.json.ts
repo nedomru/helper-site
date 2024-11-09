@@ -51,13 +51,6 @@ export async function GET() {
                     thumbnail: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/FreeCell_%28Aisleriot_2.31.2%29_ru.png/300px-FreeCell_%28Aisleriot_2.31.2%29_ru.png",
                     iframeUrl: "https://solitaires-online.com/",
                     category: "Карты"
-                },
-                {
-                    id: 8,
-                    title: "Змейка",
-                    thumbnail: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/FreeCell_%28Aisleriot_2.31.2%29_ru.png/300px-FreeCell_%28Aisleriot_2.31.2%29_ru.png",
-                    iframeUrl: "https://playsnake.org/",
-                    category: "Змейка"
                 }
             ]
         }), {
