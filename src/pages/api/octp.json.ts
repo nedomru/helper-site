@@ -27,14 +27,26 @@ async function fetchLastMessage() {
         `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getUpdates?chat_id=${CHANNEL_USERNAME}&offset=-1`
     );
     const data = await response.json();
-    console.log(data)
+    console.log('Telegram API response:', data); // Debug logging
 
     if (data.ok && data.result.length > 0) {
-      const message = data.result[0].message || data.result[0].channel_post;
-      if (message && message.text) {
-        lastMessage = message.text;
-        lastFetchTime = Date.now();
-        messageTimestamp = message.date * 1000; // Convert Telegram timestamp (seconds) to milliseconds
+      const update = data.result[0];
+      const message = update.message || update.channel_post;
+
+      if (message) {
+        // Handle both text messages and photo messages with captions
+        if (message.text) {
+          lastMessage = message.text;
+        } else if (message.photo && message.caption) {
+          lastMessage = message.caption;
+        } else if (message.photo) {
+          lastMessage = '[Photo]'; // Fallback if there's a photo but no caption
+        }
+
+        if (lastMessage) { // Only update timestamps if we got a message
+          lastFetchTime = Date.now();
+          messageTimestamp = message.date * 1000;
+        }
       }
     }
   } catch (error) {
@@ -49,11 +61,10 @@ fetchLastMessage();
 setInterval(fetchLastMessage, FETCH_INTERVAL);
 
 export const GET = async () => {
-  // Return the cached message
   return new Response(JSON.stringify({
     message: lastMessage,
-    lastFetchTime: formatEkaterinburgTime(lastFetchTime, true), // Include seconds for fetch time
-    messageTimestamp: formatEkaterinburgTime(messageTimestamp) // Message time without seconds
+    lastFetchTime: formatEkaterinburgTime(lastFetchTime, true),
+    messageTimestamp: formatEkaterinburgTime(messageTimestamp)
   }), {
     status: 200,
     headers: {
