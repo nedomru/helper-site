@@ -19,7 +19,7 @@ export async function GET() {
                         },
                         {
                             "version": "2.8.2",
-                            "update_link": "https://github.com/AuthFailed/domru-helper/releases/download/2.6/domhelper.xpi",
+                            "update_link": "https://github.com/AuthFailed/domru-helper/releases/download/2.8.2/domhelper.xpi",
                             "update_info_url": "https://helper.chrsnv.ru/wiki/versions/2-8-2/"
                         }
                     ]
