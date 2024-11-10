@@ -1,22 +1,12 @@
+// src/pages/api/last-message.js
 let lastMessage = '';
 let lastFetchTime = 0;
 let messageTimestamp = 0;
 
-const TELEGRAM_BOT_TOKEN = import.meta.env.TELEGRAM_BOT_TOKEN;
-const CHANNEL_USERNAME = import.meta.env.TELEGRAM_OCTP_CHANNEL_ID;
-const FETCH_INTERVAL = import.meta.env.OCTP_FETCH_INTERVAL;
-
-function formatEkaterinburgTime(timestamp, includeSeconds = false) {
-  const date = new Date(timestamp);
-  return date.toLocaleString('ru-RU', {
-    timeZone: 'Asia/Yekaterinburg',
-    day: '2-digit',
-    month: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: includeSeconds ? '2-digit' : undefined,
-  }).replace(',', '');
-}
+// Configuration
+const TELEGRAM_BOT_TOKEN = import.meta.env.TELEGRAM_BOT_TOKEN
+const CHANNEL_USERNAME = import.meta.env.TELEGRAM_OCTP_CHANNEL_ID
+const FETCH_INTERVAL = import.meta.env.OCTP_FETCH_INTERVAL
 
 async function fetchLastMessage() {
   try {
@@ -45,11 +35,10 @@ fetchLastMessage();
 setInterval(fetchLastMessage, FETCH_INTERVAL);
 
 export const GET = async () => {
-  // Return the cached message with all times in Ekaterinburg format
+  // Return the cached message
   return new Response(JSON.stringify({
     message: lastMessage,
-    lastFetchTime: formatEkaterinburgTime(lastFetchTime, true), // Include seconds
-    messageTimestamp: formatEkaterinburgTime(messageTimestamp) // Without seconds
+    lastFetchTime: lastFetchTime
   }), {
     status: 200,
     headers: {
