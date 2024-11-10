@@ -24,7 +24,7 @@ function formatEkaterinburgTime(timestamp, includeSeconds = false) {
 async function fetchLastMessage() {
   try {
     const response = await fetch(
-        `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getUpdates?chat_id=${CHANNEL_USERNAME}&limit=1`
+        `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getUpdates?chat_id=${CHANNEL_USERNAME}&offset=-1&allowed_updates=[%22channel_post%22]`
     );
     const data = await response.json();
     console.log(data)
