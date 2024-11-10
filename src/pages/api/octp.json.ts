@@ -14,6 +14,7 @@ async function fetchLastMessage() {
         `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getUpdates?chat_id=${CHANNEL_USERNAME}&limit=1`
     );
     const data = await response.json();
+    console.log(data)
 
     if (data.ok && data.result.length > 0) {
       const message = data.result[0].message || data.result[0].channel_post;
