@@ -40,13 +40,12 @@
 <script>
     function onTelegramAuth(user) {
         if (user && user.id) {
-            // Send message back to extension
             window.opener.postMessage({
                 type: 'telegram_auth',
                 userId: user.id
-            }, '*');
-            window.close();
+            }, 'chrome-extension://*'); // This allows the message to be received by any extension
         }
+        window.close();
     }
 </script>
 </body>
