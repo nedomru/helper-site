@@ -27,24 +27,31 @@
         }
     </style>
     <script type="text/javascript">
-        // Define the function in global scope before the widget loads
         function onTelegramAuth(user) {
             if (user && user.id) {
-                // Try multiple approaches to communicate with the extension
-                try {
-                    // Attempt to send to specific extension if you know the ID
-                    window.opener.postMessage({
-                        type: 'telegram_auth',
-                        userId: user.id
-                    }, '*'); // Use * to allow any origin initially
-                } catch (e) {
-                    console.error('Error sending message:', e);
-                }
+                // Store auth data in localStorage
+                localStorage.setItem('telegram_auth', JSON.stringify({
+                    type: 'telegram_auth',
+                    userId: user.id,
+                    timestamp: Date.now()
+                }));
 
-                // Close the window after a short delay to ensure message is sent
-                setTimeout(() => {
-                    window.close();
-                }, 100);
+                // Close the window
+                window.close();
+            }
+        }
+
+        // Check if this window was opened by the extension
+        if (window.opener) {
+            // If there's stored auth data, send it to the opener
+            const storedAuth = localStorage.getItem('telegram_auth');
+            if (storedAuth) {
+                try {
+                    window.opener.postMessage(JSON.parse(storedAuth), '*');
+                    localStorage.removeItem('telegram_auth'); // Clear after sending
+                } catch (e) {
+                    console.error('Error sending stored auth:', e);
+                }
             }
         }
     </script>
