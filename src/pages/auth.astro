@@ -26,6 +26,28 @@
             margin-bottom: 1.5rem;
         }
     </style>
+    <script type="text/javascript">
+        // Define the function in global scope before the widget loads
+        function onTelegramAuth(user) {
+            if (user && user.id) {
+                // Try multiple approaches to communicate with the extension
+                try {
+                    // Attempt to send to specific extension if you know the ID
+                    window.opener.postMessage({
+                        type: 'telegram_auth',
+                        userId: user.id
+                    }, '*'); // Use * to allow any origin initially
+                } catch (e) {
+                    console.error('Error sending message:', e);
+                }
+
+                // Close the window after a short delay to ensure message is sent
+                setTimeout(() => {
+                    window.close();
+                }, 100);
+            }
+        }
+    </script>
 </head>
 <body>
 <div class="auth-container">
@@ -37,16 +59,5 @@
             data-request-access="write">
     </script>
 </div>
-<script>
-    function onTelegramAuth(user) {
-        if (user && user.id) {
-            window.opener.postMessage({
-                type: 'telegram_auth',
-                userId: user.id
-            }, 'chrome-extension://*'); // This allows the message to be received by any extension
-        }
-        window.close();
-    }
-</script>
 </body>
 </html>
