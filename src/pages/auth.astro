@@ -4,41 +4,75 @@
     <meta charset="UTF-8">
     <title>Авторизация</title>
     <style>
-        /* ... existing styles ... */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+        }
+        .auth-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
     </style>
     <script type="text/javascript">
         function onTelegramAuth(user) {
+            console.log('Telegram auth successful:', user); // Debug log
+
             if (user && user.id) {
-                // Send message directly to opener window
+                const authData = {
+                    type: 'telegram_auth',
+                    userId: user.id,
+                    timestamp: Date.now()
+                };
+
+                // Store in localStorage
+                localStorage.setItem('telegram_auth', JSON.stringify(authData));
+
+                // Send message to extension popup
                 if (window.opener) {
-                    const authData = {
-                        type: 'telegram_auth',
-                        userId: user.id,
-                        timestamp: Date.now()
+                    console.log('Sending message to opener:', authData); // Debug log
+
+                    // Try multiple times to ensure message delivery
+                    const sendMessage = () => {
+                        window.opener.postMessage(authData, '*');
                     };
 
-                    // Try to send to extension popup
-                    window.opener.postMessage(authData, '*');
+                    // Send immediately
+                    sendMessage();
 
-                    // Also store in localStorage as backup
-                    localStorage.setItem('telegram_auth', JSON.stringify(authData));
+                    // And after a short delay as backup
+                    setTimeout(sendMessage, 100);
 
-                    // Close window after short delay to ensure message is sent
-                    setTimeout(() => window.close(), 500);
+                    // Close window after ensuring message is sent
+                    setTimeout(() => {
+                        console.log('Closing auth window'); // Debug log
+                        window.close();
+                    }, 500);
+                } else {
+                    console.log('No opener window found'); // Debug log
                 }
             }
         }
 
-        // Check for stored auth on page load
-        document.addEventListener('DOMContentLoaded', () => {
+        // On page load, check for existing auth
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log('Auth page loaded'); // Debug log
             const storedAuth = localStorage.getItem('telegram_auth');
             if (storedAuth && window.opener) {
-                try {
-                    window.opener.postMessage(JSON.parse(storedAuth), '*');
-                    localStorage.removeItem('telegram_auth');
-                } catch (e) {
-                    console.error('Error sending stored auth:', e);
-                }
+                console.log('Found stored auth, sending to opener'); // Debug log
+                window.opener.postMessage(JSON.parse(storedAuth), '*');
             }
         });
     </script>
