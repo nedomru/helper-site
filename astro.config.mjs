@@ -18,6 +18,16 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Вика по Хелперу",
+      head: [
+        {
+          tag: 'script',
+          attrs: {
+            defer: true,
+            src: 'https://webstats.chrsnv.ru/script.js',
+            'data-website-id': 'ea37f5bc-ba6a-4d9b-a423-72f834e5aedd'
+          },
+        },
+      ],
       favicon: "/favicon.ico",
       logo: {
         src: "./public/logo.png",
