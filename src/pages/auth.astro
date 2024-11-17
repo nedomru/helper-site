@@ -25,10 +25,30 @@
             color: #333;
             margin-bottom: 1.5rem;
         }
+        #debug-log {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f5f5f5;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
     </style>
     <script type="text/javascript">
+        // Debug logging function
+        function debugLog(message) {
+            console.log(message);
+            const debugElement = document.getElementById('debug-log');
+            if (debugElement) {
+                debugElement.innerHTML += `${new Date().toISOString()}: ${message}<br>`;
+                debugElement.scrollTop = debugElement.scrollHeight;
+            }
+        }
+
         function onTelegramAuth(user) {
-            console.log('Telegram auth successful:', user); // Debug log
+            debugLog('Telegram auth successful: ' + JSON.stringify(user));
 
             if (user && user.id) {
                 const authData = {
@@ -42,51 +62,68 @@
 
                 // Send message to extension popup
                 if (window.opener) {
-                    console.log('Sending message to opener:', authData); // Debug log
-
-                    // Try multiple times to ensure message delivery
+                    debugLog('Attempting to send message to opener window');
+                    
+                    // Function to send message
                     const sendMessage = () => {
-                        window.opener.postMessage(authData, '*');
+                        try {
+                            window.opener.postMessage(authData, 'chrome-extension://*');
+                            debugLog('Message sent to chrome-extension');
+                            
+                            // Also try sending to any origin as fallback
+                            window.opener.postMessage(authData, '*');
+                            debugLog('Message sent to all origins');
+                        } catch (error) {
+                            debugLog('Error sending message: ' + error.message);
+                        }
                     };
 
-                    // Send immediately
+                    // Try sending multiple times
                     sendMessage();
-
-                    // And after a short delay as backup
                     setTimeout(sendMessage, 100);
+                    setTimeout(sendMessage, 500);
 
                     // Close window after ensuring message is sent
                     setTimeout(() => {
-                        console.log('Closing auth window'); // Debug log
+                        debugLog('Closing auth window');
                         window.close();
-                    }, 500);
+                    }, 1000);
                 } else {
-                    console.log('No opener window found'); // Debug log
+                    debugLog('No opener window found');
                 }
             }
         }
 
-        // On page load, check for existing auth
+        // On page load
         window.addEventListener('DOMContentLoaded', () => {
-            console.log('Auth page loaded'); // Debug log
+            debugLog('Auth page loaded');
             const storedAuth = localStorage.getItem('telegram_auth');
             if (storedAuth && window.opener) {
-                console.log('Found stored auth, sending to opener'); // Debug log
-                window.opener.postMessage(JSON.parse(storedAuth), '*');
+                debugLog('Found stored auth, attempting to send to opener');
+                try {
+                    const authData = JSON.parse(storedAuth);
+                    window.opener.postMessage(authData, 'chrome-extension://*');
+                    window.opener.postMessage(authData, '*');
+                    debugLog('Sent stored auth data');
+                } catch (error) {
+                    debugLog('Error sending stored auth: ' + error.message);
+                }
             }
         });
     </script>
 </head>
 <body>
-<div class="auth-container">
-    <h1>Авторизация</h1>
-    <script async
-            src="https://telegram.org/js/telegram-widget.js?22"
-            data-telegram-login="helper_authorization_bot"
-            data-size="large"
-            data-onauth="onTelegramAuth(user)"
-            data-request-access="write">
-    </script>
-</div>
+    <div class="auth-container">
+        <h1>Авторизация</h1>
+        <script async
+                src="https://telegram.org/js/telegram-widget.js?22"
+                data-telegram-login="helper_authorization_bot"
+                data-size="large"
+                data-onauth="onTelegramAuth(user)"
+                data-request-access="write">
+        </script>
+        <!-- Debug log container -->
+        <div id="debug-log"></div>
+    </div>
 </body>
 </html>
