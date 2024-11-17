@@ -25,30 +25,10 @@
             color: #333;
             margin-bottom: 1.5rem;
         }
-        #debug-log {
-            margin-top: 1rem;
-            padding: 1rem;
-            background: #f5f5f5;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 12px;
-            max-height: 200px;
-            overflow-y: auto;
-        }
     </style>
     <script type="text/javascript">
-        // Debug logging function
-        function debugLog(message) {
-            console.log(message);
-            const debugElement = document.getElementById('debug-log');
-            if (debugElement) {
-                debugElement.innerHTML += `${new Date().toISOString()}: ${message}<br>`;
-                debugElement.scrollTop = debugElement.scrollHeight;
-            }
-        }
-
         function onTelegramAuth(user) {
-            debugLog('Telegram auth successful: ' + JSON.stringify(user));
+            console.log('Telegram auth successful:', user);
 
             if (user && user.id) {
                 const authData = {
@@ -57,59 +37,10 @@
                     timestamp: Date.now()
                 };
 
-                // Store in localStorage
-                localStorage.setItem('telegram_auth', JSON.stringify(authData));
-
-                // Send message to extension popup
-                if (window.opener) {
-                    debugLog('Attempting to send message to opener window');
-                    
-                    // Function to send message
-                    const sendMessage = () => {
-                        try {
-                            window.opener.postMessage(authData, 'chrome-extension://*');
-                            debugLog('Message sent to chrome-extension');
-                            
-                            // Also try sending to any origin as fallback
-                            window.opener.postMessage(authData, '*');
-                            debugLog('Message sent to all origins');
-                        } catch (error) {
-                            debugLog('Error sending message: ' + error.message);
-                        }
-                    };
-
-                    // Try sending multiple times
-                    sendMessage();
-                    setTimeout(sendMessage, 100);
-                    setTimeout(sendMessage, 500);
-
-                    // Close window after ensuring message is sent
-                    setTimeout(() => {
-                        debugLog('Closing auth window');
-                        window.close();
-                    }, 1000);
-                } else {
-                    debugLog('No opener window found');
-                }
+                // Post message to the page itself
+                window.postMessage(authData, '*');
             }
         }
-
-        // On page load
-        window.addEventListener('DOMContentLoaded', () => {
-            debugLog('Auth page loaded');
-            const storedAuth = localStorage.getItem('telegram_auth');
-            if (storedAuth && window.opener) {
-                debugLog('Found stored auth, attempting to send to opener');
-                try {
-                    const authData = JSON.parse(storedAuth);
-                    window.opener.postMessage(authData, 'chrome-extension://*');
-                    window.opener.postMessage(authData, '*');
-                    debugLog('Sent stored auth data');
-                } catch (error) {
-                    debugLog('Error sending stored auth: ' + error.message);
-                }
-            }
-        });
     </script>
 </head>
 <body>
@@ -122,8 +53,6 @@
                 data-onauth="onTelegramAuth(user)"
                 data-request-access="write">
         </script>
-        <!-- Debug log container -->
-        <div id="debug-log"></div>
     </div>
 </body>
 </html>
