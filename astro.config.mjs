@@ -6,11 +6,15 @@ import { defineConfig, sharpImageService } from "astro/config";
 import config from "./src/config/config.json";
 import AutoImport from "astro-auto-import";
 
+import node from "@astrojs/node";
+
 // https://astro.build/config
 export default defineConfig({
+  output: "server",
   site: config.site.base_url ? config.site.base_url : "https://helper.chrsnv.ru",
   base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
+
   vite: {
     css: {
       preprocessorOptions: {
@@ -20,10 +24,12 @@ export default defineConfig({
       }
     }
   },
+
   // Image optimization service
   image: {
     service: sharpImageService(),
   },
+
   integrations: [
     react(),
     sitemap(),
@@ -40,10 +46,15 @@ export default defineConfig({
     }),
     mdx()
   ],
+
   markdown: {
     shikiConfig: {
       theme: "one-dark-pro",
       wrap: true,
     }
-  }
+  },
+
+  adapter: node({
+    mode: "standalone"
+  })
 });
