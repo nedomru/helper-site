@@ -1,91 +1,49 @@
-// @ts-check
-import { defineConfig } from "astro/config";
-
-import starlight from "@astrojs/starlight";
-import starlightImageZoom from "starlight-image-zoom";
-import node from "@astrojs/node";
+import mdx from "@astrojs/mdx";
+import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
+import tailwind from "@astrojs/tailwind";
+import { defineConfig, sharpImageService } from "astro/config";
+import config from "./src/config/config.json";
+import AutoImport from "astro-auto-import";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "server",
-  adapter: node({
-    mode: "standalone"
-  }),
-
-  site: "https://helper.chrsnv.ru",
-  base: "/",
-
+  site: config.site.base_url ? config.site.base_url : "https://helper.chrsnv.ru",
+  base: config.site.base_path ? config.site.base_path : "/",
+  trailingSlash: config.site.trailing_slash ? "always" : "never",
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: "modern-compiler"
+        }
+      }
+    }
+  },
+  // Image optimization service
+  image: {
+    service: sharpImageService(),
+  },
   integrations: [
-    starlight({
-      title: "Вика по Хелперу",
-      head: [
-        {
-          tag: 'script',
-          attrs: {
-            defer: true,
-            src: 'https://webstats.chrsnv.ru/script.js',
-            'data-website-id': 'ea37f5bc-ba6a-4d9b-a423-72f834e5aedd'
-          },
-        },
+    react(),
+    sitemap(),
+    tailwind(),
+    AutoImport({
+      // import react components to use in mdx
+      imports: [
+        "@/components/react/FeatherIcon.tsx",
+        "@/components/CounterComponent.astro",
+        "@/components/core/Section.astro",
+        "@/components/react/Changelog.tsx",
+        "@/components/Badge.astro",
       ],
-      favicon: "/favicon.ico",
-      logo: {
-        src: "./public/logo.png",
-      },
-      customCss: [
-        "./src/styles/custom.css",
-      ],
-      editLink: {
-        baseUrl: "https://github.com/authfailed/domru-helper/edit/main/",
-      },
-      locales: {
-        root: {
-          label: "Russian",
-          lang: "ru",
-        },
-      },
-      sidebar: [
-        { label: "🏠 Главная", link: "/" },
-        { label: "👋 База", link: "/wiki" },
-        {
-          label: "Руководства",
-          items: [
-            { slug: "wiki/instructions/setup" },
-            { slug: "wiki/instructions/open-settings" },
-            { slug: "wiki/instructions/add-buttons" },
-            { slug: "wiki/instructions/change-highlight-color" },
-          ],
-        },
-        {
-          label: "Функционал",
-          items: [
-            { slug: "wiki/functions/popup-window" },
-            { slug: "wiki/functions/settings" },
-          ],
-        },
-        {
-          label: "Используемые API",
-          items: [
-            { slug: "wiki/api/mna" },
-            { slug: "wiki/api/routers" },
-            { slug: "wiki/api/ip-check" },
-            { slug: "wiki/api/mac-check" },
-          ],
-        },
-        {
-          label: "Версии",
-          autogenerate: { directory: "wiki/versions" }
-        },
-      ],
-      plugins: [
-        starlightImageZoom({
-          showCaptions: true,
-        }),
-      ],
-      social: {
-        telegram: "https://t.me/nedomru",
-        github: "https://github.com/authfailed/domru-helper",
-      },
     }),
+    mdx()
   ],
+  markdown: {
+    shikiConfig: {
+      theme: "one-dark-pro",
+      wrap: true,
+    }
+  }
 });
