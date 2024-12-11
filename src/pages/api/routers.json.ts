@@ -45,9 +45,9 @@ export async function GET() {
         {
           Name: "TP-Link Archer A6/C7/C60/A9",
           PPPoE:
-            "http://kbn.ertelecom.ru/download/attachments/27963307/%D0%BC%D0%BE%D0%B9%20tp-link%20%D0%A0%D0%A0%D0%A0%D0%BE%D0%95.pdf",
-          DHCP: "http://kbn.ertelecom.ru/download/attachments/27963307/DHCP%20opt%2082%20%D0%B1%D0%B8%D1%80%D1%8E%D0%B7%D0%BE%D0%B2%D0%B0%D1%8F%20%28v2%29.pdf",
-          IPoE: "http://kbn.ertelecom.ru/download/attachments/27963307/Static%20ip%20%D0%B1%D0%B8%D1%80%D1%8E%D0%B7%D0%BE%D0%B2%D0%B0%D1%8F%20%28v2%29.pdf",
+            "https://clever.ertelecom.ru/content/space/4/folder/465/article/12817/page/0#tp_link_a_osn_pppoe",
+          DHCP: "https://clever.ertelecom.ru/content/space/4/folder/465/article/12817/page/0#tp_link_a_osn_dhcp",
+          IPoE: "https://clever.ertelecom.ru/content/space/4/folder/465/article/12817/page/0#tp_link_a_osn_static",
           Channels:
             "https://dom.ru/faq/instruktsii-po-oborudovaniyu/router__TPLink_Turquoise_v2_C20_010",
           Settings: "0.1/tplinkwifi.net",
@@ -192,9 +192,9 @@ export async function GET() {
         {
           Name: "Keenetic AlR/Zyxel VIVA/Zyxel CITY/Zyxel START",
           PPPoE:
-            "http://kbn.ertelecom.ru/download/attachments/27963307/Zyxel%20%D0%BD%D0%BE%D0%B2%D0%B0%D1%8F%20%D0%BF%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B0.pdf",
+            "Нет",
           DHCP: "Нет",
-          IPoE: "http://kbn.ertelecom.ru/download/attachments/27963307/Zyxel%20Air%20%D0%BF%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B0.pdf?version=1&modificationDate=1558793480808&api=v2",
+          IPoE: "Нет",
           Channels: "Нет",
           Settings: "1.1/my.keenetic.net",
           BZ: "https://clever.ertelecom.ru/content/space/4/folder/631/article/2510?text=Zyxel+AlR+/+Zyxel+VIVA+/+Zyxel+CITY+/+Zyxel+START",
@@ -403,27 +403,16 @@ export async function GET() {
         {
           Name: "Tenda new",
           PPPoE:
-            "http://kbn.ertelecom.ru/download/attachments/27963307/Tenda%20%28%D0%BE%D1%80%D0%B0%D0%BD%D0%B6%D0%B5%D0%B2%D0%B0%D1%8F%20%D0%BD%D0%BE%D0%B2%D0%B0%D1%8F%20%D0%BF%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B0%29%20PPPoE.pdf",
-          DHCP: "http://kbn.ertelecom.ru/download/attachments/27963307/Tenda%20New%20%D0%BF%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B0.pdf",
-          IPoE: "http://kbn.ertelecom.ru/download/attachments/27963307/Tenda%20%28%D0%BE%D1%80%D0%B0%D0%BD%D0%B6%D0%B5%D0%B2%D0%B0%D1%8F%20%D0%BD%D0%BE%D0%B2%D0%B0%D1%8F%20%D0%BF%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B0%29%20static.pdf",
+            "https://clever.ertelecom.ru/content/space/4/folder/465/article/13777",
+          DHCP: "https://clever.ertelecom.ru/content/space/4/folder/465/article/13778",
+          IPoE: "https://clever.ertelecom.ru/content/space/4/folder/465/article/13779",
           Channels: "Нет",
           Settings: "0.1",
           BZ: "https://clever.ertelecom.ru/content/space/4/folder/631/article/2598?text=Tenda+new",
           Emulator: "http://simulator.tendacn.com/F300v2/",
         },
         {
-          Name: "Mikrotik",
-          PPPoE:
-            "http://kbn.ertelecom.ru/download/attachments/27963307/Nastroyka_PPPoE.pdf",
-          DHCP: "http://kbn.ertelecom.ru/download/attachments/27963307/Nastroyka_DHCP.pdf?version=1&modificationDate=1597212858405",
-          IPoE: "Нет",
-          Channels: "Нет",
-          Settings: "88.1",
-          BZ: "https://clever.ertelecom.ru/content/space/4/article/2082?text=Mikrotik",
-          Emulator: "https://demo.mt.lv/webfig/#System:Password.Change_Now",
-        },
-        {
-          Name: "MikroTik hAP Lite",
+          Name: "MikroTik",
           PPPoE:
             "https://dom.ru/faq/instruktsii-po-oborudovaniyu/router__Mikrotik_hAP-Lite-TC_003",
           DHCP: "https://dom.ru/faq/instruktsii-po-oborudovaniyu/router__Mikrotik_hAP-Lite-TC_004",
@@ -633,9 +622,9 @@ export async function GET() {
         {
           Name: "UPVEl UR-312N4G",
           PPPoE:
-            "http://kbn.ertelecom.ru/download/attachments/27963307/Upvel%20UR-312N4G%20%D0%BC%D0%B0%D0%BD%D1%83%D0%B0%D0%BB%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9.pdf",
+            "https://clever.ertelecom.ru/content/space/4/folder/465/article/13750",
           DHCP: "Нет",
-          IPoE: "http://kbn.ertelecom.ru/download/attachments/27132203/Upvel%20%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9.pdf",
+          IPoE: "https://clever.ertelecom.ru/content/space/4/folder/465/article/13752",
           Channels: "Нет",
           Settings: "10.1",
           BZ: "https://clever.ertelecom.ru/content/space/4/article/2521?text=UPVEl+UR-312N4G",
@@ -644,9 +633,9 @@ export async function GET() {
         {
           Name: "Tenda Nova MW3, MW6",
           PPPoE:
-            "http://kbn.ertelecom.ru/download/attachments/27963307/%D0%BC%D1%8D%D1%88%20%D1%80%D1%80%D1%80%D0%BE%D0%B5.pdf",
-          DHCP: "http://kbn.ertelecom.ru/download/attachments/27963307/mash%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0.pdf",
-          IPoE: "http://kbn.ertelecom.ru/download/attachments/27963307/static%20mesh.pdf",
+            "https://clever.ertelecom.ru/content/space/4/article/1580/page/3?fileView=39281",
+          DHCP: "https://clever.ertelecom.ru/content/space/4/article/1580/page/3?fileView=39282",
+          IPoE: "Нет",
           Channels: "Нет",
           Settings: "0.1",
           BZ: "https://clever.ertelecom.ru/content/space/4/article/2072?text=Tenda+Nova+MW3,+MW6",
@@ -655,19 +644,19 @@ export async function GET() {
         {
           Name: "Tp-Link DECO M4",
           PPPoE:
-            "http://kbn.ertelecom.ru/download/attachments/27963307/meshup1%20%281%29.pdf",
-          DHCP: "http://kbn.ertelecom.ru/download/attachments/27963307/mesh%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0%20%D1%82%D0%bf%20%D0%BB%D0%B8%D0%BD%D0%BA.pdf",
-          IPoE: "http://kbn.ertelecom.ru/download/attachments/27963307/meshup1%20%281%29.pdf",
+            "https://clever.ertelecom.ru/content/space/4/article/1564/page/3?fileView=39198",
+          DHCP: "https://clever.ertelecom.ru/content/space/4/article/1564/page/3?fileView=39199",
+          IPoE: "https://clever.ertelecom.ru/content/space/4/article/1564/page/3?fileView=39198",
           Channels: "Нет",
           Settings: "68.1",
           BZ: "https://clever.ertelecom.ru/content/space/4/article/2072?text=Tp-Link+DECO+M4",
           Emulator: "Нет",
         },
         {
-          Name: "Nokia Wifi Beacon",
+            Name: "Nokia Wifi Beacon",
           PPPoE:
-            "http://kbn.ertelecom.ru/download/attachments/27963307/%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_Nokia_Beacon_%D1%87%D0%B5%D1%80%D0%B5%D0%B7_web_%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81.pdf",
-          DHCP: "http://kbn.ertelecom.ru/download/attachments/27963307/%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_Nokia_Beacon_%D1%87%D0%B5%D1%80%D0%B5%D0%B7_web_%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81.pdf",
+            "D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81.pdf",
+          DHCP: "https://clever.ertelecom.ru/content/space/4/article/1616/page/3?fileView=39298",
           IPoE: "Нет",
           Channels: "Нет",
           Settings: "18.1",
