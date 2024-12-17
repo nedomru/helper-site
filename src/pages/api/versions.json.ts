@@ -51,6 +51,11 @@ export async function GET() {
               update_link:
                 "https://github.com/AuthFailed/domru-helper/releases/download/2.9.4.1/domhelper.xpi",
             },
+            {
+              version: "2.9.4.2",
+              update_link:
+                "https://github.com/AuthFailed/domru-helper/releases/download/2.9.4.2/domhelper.xpi",
+            },
           ],
         },
       },
