@@ -1,13 +1,13 @@
 import { algoliasearch } from 'algoliasearch';
 
-const ALGOLIA_APP_ID = 'DN83H0EFK4';
-const ALGOLIA_API_KEY = '7137b848847afbf662f766c90f9dbd49';
-const ALGOLIA_INDEX_NAME = 'flomaster-chrsnv';
+const ALGOLIA_APP_ID = import.meta.env.ALGOLIA_APP_ID
+const ALGOLIA_API_KEY = import.meta.env.ALGOLIA_API_KEY
+const ALGOLIA_INDEX_NAME = import.meta.env.ALGOLIA_INDEX_NAME
 
 export async function GET({ url }) {
   try {
     const client = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_API_KEY);
-    const response = await client.browse({ indexName: 'flomaster-chrsnv' });
+    const response = await client.browse({ indexName: ALGOLIA_INDEX_NAME });
 
     return new Response(
       JSON.stringify({ phrases: response }),
