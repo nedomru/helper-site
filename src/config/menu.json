@@ -1,0 +1,35 @@
+{
+  "main": [
+    {
+      "name": "Главная",
+      "url": "/"
+    },
+    {
+      "name": "Фичи",
+      "url": "/features"
+    },
+    {
+      "name": "Изменения",
+      "url": "/changelog"
+    },
+    {
+      "name": "О проекте",
+      "url": "/about"
+    },
+    {
+      "name": "Телеграм",
+      "url": "https://t.me/+jH1mblw0ytcwOWUy"
+    }
+  ],
+
+  "footer": [
+    {
+      "name": "О проекте",
+      "url": "/about"
+    },
+    {
+      "name": "Изменения",
+      "url": "/changelog"
+    }
+  ]
+}
