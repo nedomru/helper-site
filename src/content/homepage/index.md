@@ -8,7 +8,7 @@ banner:
   image: /images/logo_v5_xl_pfp.webp
   buttons:
     - label: Установить
-      href: "https://github.com/AuthFailed/domru-helper/releases/latest/download/domhelper.xpi"
+      href: "https://github.com/nedomru-dev/helper-site/releases/latest/download/domhelper.xpi"
       icon: _GitHub
       addClasses: "w-full bg-gray-900 text-white hover:bg-accent dark:border-white/10 dark:border"
 
