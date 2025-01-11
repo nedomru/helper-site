@@ -1,4 +1,3 @@
-// src/pages/api/last-message.js
 let lastMessage = '';
 let lastFetchTime = 0;
 let messageTimestamp = 0;
