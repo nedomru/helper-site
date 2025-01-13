@@ -9,6 +9,16 @@ export async function GET() {
               update_link:
                 "https://github.com/nedomru/helper-site/releases/download/2.9.4.3/domhelper.xpi",
             },
+            {
+              version: "2.9.4.4",
+              update_link:
+                "https://github.com/nedomru/helper-site/releases/download/2.9.4.4/domhelper.xpi",
+            },
+            {
+              version: "2.9.4.5",
+              update_link:
+                "https://github.com/nedomru/helper-site/releases/download/2.9.4.5/domhelper.xpi",
+            },
           ],
         },
       },
