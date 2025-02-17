@@ -5,9 +5,9 @@ export async function GET() {
         "{724d1c91-059e-4392-8478-494513fc8241}": {
           updates: [
             {
-              version: "2.9.4.8",
+              version: "2.9.4.9",
               update_link:
-                "https://github.com/nedomru/helper-site/releases/download/2.9.4.8/domhelper.xpi",
+                "https://github.com/nedomru/helper-site/releases/download/2.9.4.9/domhelper.xpi",
             },
           ],
         },
