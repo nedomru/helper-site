@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@astrojs/mdx": "^4.0.8",
-    "@astrojs/node": "^9.1.0",
+    "@astrojs/netlify": "^6.2.3",
     "@astrojs/react": "^4.2.0",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^6.0.0",

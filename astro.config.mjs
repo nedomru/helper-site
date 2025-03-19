@@ -6,11 +6,10 @@ import { defineConfig, sharpImageService } from "astro/config";
 import config from "./src/config/config.json";
 import AutoImport from "astro-auto-import";
 
-import node from "@astrojs/node";
+import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "server",
   site: config.site.base_url ? config.site.base_url : "https://helper.chrsnv.ru",
   base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
@@ -27,34 +26,22 @@ export default defineConfig({
 
   // Image optimization service
   image: {
-    service: sharpImageService(),
+    service: sharpImageService()
   },
 
-  integrations: [
-    react(),
-    sitemap(),
-    tailwind(),
-    AutoImport({
-      // import react components to use in mdx
-      imports: [
-        "@/components/react/FeatherIcon.tsx",
-        "@/components/CounterComponent.astro",
-        "@/components/core/Section.astro",
-        "@/components/react/Changelog.tsx",
-        "@/components/Badge.astro",
-      ],
-    }),
-    mdx()
-  ],
+  integrations: [react(), sitemap(), tailwind(), AutoImport({
+    // import react components to use in mdx
+    imports: ["@/components/react/FeatherIcon.tsx", "@/components/CounterComponent.astro", "@/components/core/Section.astro", "@/components/react/Changelog.tsx", "@/components/Badge.astro"]
+  }), mdx()],
 
   markdown: {
     shikiConfig: {
-      theme: "one-dark-pro",
-      wrap: true,
+      theme: "one-dark-pro", wrap: true
     }
   },
 
-  adapter: node({
-    mode: "standalone"
+  output: "server",
+  adapter: netlify({
+    edgeMiddleware: true
   })
 });
