@@ -6,7 +6,7 @@ import { defineConfig, sharpImageService } from "astro/config";
 import config from "./src/config/config.json";
 import AutoImport from "astro-auto-import";
 
-import netlify from "@astrojs/netlify/functions";
+import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
@@ -41,7 +41,7 @@ export default defineConfig({
   },
 
   output: "server",
-  adapter: netlify({
-    edgeMiddleware: true
+  adapter: node({
+    mode: "standalone"
   })
 });
