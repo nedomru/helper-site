@@ -6,19 +6,21 @@ const OPENROUTER_TOKEN = import.meta.env.OPENROUTER_TOKEN
 export const POST: APIRoute = async ({ request }) => {
   try {
     // Parse the incoming request JSON body
-    const { userMessage } = await request.json();
+    const { message, model } = await request.json();
 
     // Check if userMessage exists
-    if (!userMessage || typeof userMessage !== 'string') {
+    if (!message || typeof message !== 'string') {
       return new Response(JSON.stringify({ error: 'User message is required' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
       });
     }
 
+    const modelToUse = model || 'deepseek/deepseek-r1:free';
+
     // Prepare the request body for the OpenRouter API
     const requestBody = {
-      model: "deepseek/deepseek-r1:free",
+      model: model,
       messages: [
         {
           role: "system",
@@ -68,7 +70,7 @@ export const POST: APIRoute = async ({ request }) => {
           content: [
             {
               type: "text",
-              text: userMessage,
+              text: message,
             },
           ],
         },
