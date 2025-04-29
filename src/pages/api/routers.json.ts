@@ -53,7 +53,7 @@ export async function GET() {
       Channels: "https://dom.ru/faq/instruktsii-po-oborudovaniyu/router__DLink_Grey-orange_009",
       Settings: "0.1",
       BZ: "https://clever.ertelecom.ru/content/space/4/folder/631/article/2275?text=D-Link+DIR-300+/+DIR-615",
-      Emulator: "http://linserv.ru/dlink-DIR-615/"
+      Emulator: "https://linserv.ru/dlink-DIR-615/"
     }, {
       Name: "D-Link DIR-300NRU/DIR-615 Темная",
       PPPoE: "https://dom.ru/faq/instruktsii-po-oborudovaniyu/router__DLink_Grey_003",
@@ -242,7 +242,7 @@ export async function GET() {
       Channels: "https://dom.ru/faq/instruktsii-po-oborudovaniyu/router__Netis_Blue_008",
       Settings: "1.1/netis.cc",
       BZ: "https://clever.ertelecom.ru/content/space/4/article/2078?text=Netis+(Синий+Settings)",
-      Emulator: "http://linserv.ru/Netis-WF2501/"
+      Emulator: "https://linserv.ru/Netis-WF2501/"
     }, {
       Name: "Netgear EVG-1500 (Дом.ru)",
       PPPoE: "https://dom.ru/faq/instruktsii-po-oborudovaniyu/router__NetgearDomru_003",
@@ -278,7 +278,7 @@ export async function GET() {
       Channels: "https://dom.ru/faq/instruktsii-po-oborudovaniyu/router__Sagemcom_006",
       Settings: "1.1",
       BZ: "https://clever.ertelecom.ru/content/space/4/article/2513?text=Sagemcom+f@st+2804+v7",
-      Emulator: "http://linserv.ru/FAST-2804v7/"
+      Emulator: "https://linserv.ru/FAST-2804v7/"
     }, {
       Name: "SNR-CPE-W4N",
       PPPoE: "https://dom.ru/faq/instruktsii-po-oborudovaniyu/router__SNR-CPE-W4N_003",
@@ -287,7 +287,7 @@ export async function GET() {
       Channels: "https://dom.ru/faq/instruktsii-po-oborudovaniyu/router__SNR-CPE-W4N_009",
       Settings: "1.1",
       BZ: "https://clever.ertelecom.ru/content/space/4/folder/631/article/2515?text=SNR-CPE-W4N",
-      Emulator: "http://linserv.ru/SNR-CPE-W4n/home.html"
+      Emulator: "https://linserv.ru/SNR-CPE-W4n/home.html"
     }, {
       Name: "SNR-CPE-W4N ревизия M",
       PPPoE: "https://dom.ru/faq/instruktsii-po-oborudovaniyu/router__SNR-CPE-W4N-revM_003",
@@ -296,7 +296,7 @@ export async function GET() {
       Channels: "https://dom.ru/faq/instruktsii-po-oborudovaniyu/router__SNR-CPE-W4N-revM_009",
       Settings: "1.1",
       BZ: "https://clever.ertelecom.ru/content/space/4/folder/631/article/2515?text=SNR-CPE-W4N+ревизия+M",
-      Emulator: "http://linserv.ru/SNR-CPE-W4n/home.html"
+      Emulator: "https://linserv.ru/SNR-CPE-W4n/home.html"
     }, {
       Name: "Tenda F300",
       PPPoE: "https://dom.ru/faq/instruktsii-po-oborudovaniyu/router__Tenda_F300_003",
@@ -458,7 +458,7 @@ export async function GET() {
       Channels: "https://dom.ru/faq/instruktsii-po-oborudovaniyu/router__Upvel_UR-325BN_008",
       Settings: "10.1",
       BZ: "https://clever.ertelecom.ru/content/space/4/article/2521?text=Upvel+UR-325BN+/+UR-322N4G",
-      Emulator: "http://linserv.ru/Upvel-UR-447N4G/"
+      Emulator: "https://linserv.ru/Upvel-UR-447N4G/"
     }, {
       Name: "Upvel UR-354AN4G",
       PPPoE: "https://dom.ru/faq/instruktsii-po-oborudovaniyu/router__Upvel_UR-354AN4G_003",
@@ -467,7 +467,7 @@ export async function GET() {
       Channels: "https://dom.ru/faq/instruktsii-po-oborudovaniyu/router__Upvel_UR-354AN4G_007",
       Settings: "10.1",
       BZ: "https://clever.ertelecom.ru/content/space/4/article/2521?text=Upvel+UR-354AN4G",
-      Emulator: "http://linserv.ru/Upvel-UR-314AWN/"
+      Emulator: "https://linserv.ru/Upvel-UR-314AWN/"
     }, {
       Name: "UPVEl UR-312N4G",
       PPPoE: "https://clever.ertelecom.ru/content/space/4/folder/465/article/13750",
@@ -476,7 +476,7 @@ export async function GET() {
       Channels: "Нет",
       Settings: "10.1",
       BZ: "https://clever.ertelecom.ru/content/space/4/article/2521?text=UPVEl+UR-312N4G",
-      Emulator: "http://linserv.ru/Upvel-UR825AC/"
+      Emulator: "https://linserv.ru/Upvel-UR825AC/"
     },
       {
         Name: "Дом.ру Wave (Вейв)",
@@ -496,7 +496,7 @@ export async function GET() {
       Channels: "https://dom.ru/faq/instruktsii-po-oborudovaniyu/router__Xiaomi_Mi-Router3_009",
       Settings: "31.1/miwifi.com/router.miwifi.com",
       BZ: "https://clever.ertelecom.ru/content/space/4/bookmark/34/article/2509?text=Xiaomi+Mi+Wi-Fi+Router+3",
-      Emulator: "http://linserv.ru/Xiaomi/cgi-bin/luci/home"
+      Emulator: "https://linserv.ru/Xiaomi/cgi-bin/luci/home"
     }, {
       Name: "Xiaomi Черная",
       PPPoE: "https://dom.ru/faq/instruktsii-po-oborudovaniyu/router__Xiaomi_Mi-Router_004",
