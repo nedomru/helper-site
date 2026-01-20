@@ -1,9 +1,12 @@
-const ADDON_ID = "{724d1c91-059e-4392-8478-494513fc8241}";
 const GITHUB_REPO = "nedomru/helper-site";
 
 interface GitHubRelease {
   tag_name: string;
+  name: string;
+  body: string | null;
   html_url: string;
+  published_at: string;
+  prerelease: boolean;
 }
 
 export async function GET() {
@@ -20,35 +23,30 @@ export async function GET() {
 
     const releases: GitHubRelease[] = await response.json();
 
-    const updates = releases
-      .filter((release) => release.tag_name && !release.tag_name.includes("-"))
+    const changelog = releases
+      .filter((release) => release.tag_name)
       .map((release) => ({
         version: release.tag_name,
-        update_link: `https://github.com/${GITHUB_REPO}/releases/download/${release.tag_name}/domhelper.xpi`,
+        name: release.name || release.tag_name,
+        body: release.body || "Нет описания",
+        url: release.html_url,
+        date: release.published_at,
+        prerelease: release.prerelease,
       }));
 
-    return new Response(
-      JSON.stringify({
-        addons: {
-          [ADDON_ID]: {
-            updates,
-          },
-        },
-      }),
-      {
-        status: 200,
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET",
-          "Access-Control-Allow-Headers": "Content-Type, Authorization",
-        },
+    return new Response(JSON.stringify(changelog), {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
       },
-    );
+    });
   } catch (error) {
     return new Response(
       JSON.stringify({
-        error: "Failed to fetch releases",
+        error: "Failed to fetch changelog",
         message: error instanceof Error ? error.message : "Unknown error",
       }),
       {
