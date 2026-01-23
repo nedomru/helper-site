@@ -67,6 +67,88 @@ export async function getUserSettings(userId: number): Promise<DbUser | null> {
 }
 
 /**
+ * Update user settings by merging with existing settings
+ * @param userId - Telegram user ID
+ * @param newSettings - Partial settings object to merge
+ * @returns Updated user record or null if user not found
+ */
+export async function updateUserSettings(
+  userId: number,
+  newSettings: Record<string, unknown>
+): Promise<DbUser | null> {
+  const client = await getPool().connect();
+
+  try {
+    // Get current user and settings
+    const currentResult = await client.query<DbUser>(
+      'SELECT user_id, access, settings FROM users WHERE user_id = $1',
+      [userId]
+    );
+
+    if (currentResult.rows.length === 0) {
+      return null;
+    }
+
+    const currentUser = currentResult.rows[0];
+
+    // Merge settings: deep merge nested objects
+    const mergedSettings = deepMerge(
+      (currentUser.settings as Record<string, unknown>) || {},
+      newSettings
+    );
+
+    // Update the user with merged settings
+    const updateResult = await client.query<DbUser>(
+      'UPDATE users SET settings = $1 WHERE user_id = $2 RETURNING user_id, access, settings',
+      [JSON.stringify(mergedSettings), userId]
+    );
+
+    return updateResult.rows[0];
+  } catch (error) {
+    console.error('Error updating user settings:', error);
+    throw error;
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Deep merge two objects
+ * @param target - The target object to merge into
+ * @param source - The source object to merge from
+ * @returns Merged object
+ */
+function deepMerge(
+  target: Record<string, unknown>,
+  source: Record<string, unknown>
+): Record<string, unknown> {
+  const result = { ...target };
+
+  for (const [key, value] of Object.entries(source)) {
+    if (
+      value &&
+      typeof value === 'object' &&
+      !Array.isArray(value) &&
+      key in result &&
+      result[key] &&
+      typeof result[key] === 'object' &&
+      !Array.isArray(result[key])
+    ) {
+      // Both are objects, merge recursively
+      result[key] = deepMerge(
+        result[key] as Record<string, unknown>,
+        value as Record<string, unknown>
+      );
+    } else {
+      // Primitive value, array, or key doesn't exist in target - set/overwrite
+      result[key] = value;
+    }
+  }
+
+  return result;
+}
+
+/**
  * Close all connections in the pool
  */
 export async function closePool(): Promise<void> {
