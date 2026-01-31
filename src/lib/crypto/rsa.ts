@@ -1,4 +1,4 @@
-import { crypto } from 'node:crypto';
+import * as crypto from 'node:crypto';
 
 /**
  * Decrypt data using RSA private key (server-side use)
