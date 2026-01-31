@@ -1,19 +1,21 @@
 /**
  * Send message to authenticated user in Telegram via bot
- * POST /api/telegram/send-message.json
+ * POST /api/send.json
  *
- * Authorized users can send messages to themselves
+ * Authorized users can send messages to themselves.
+ * Messages must be RSA-encrypted using the server's public key.
+ * Get the public key from /api/public-key.json
  */
 
 import type { APIRoute } from 'astro';
 import { protectedRoute } from '@/lib/auth/middleware.ts';
+import { decryptWithPrivateKey, getPrivateKey } from '@/lib/crypto/rsa.ts';
 
 interface SendMessageRequest {
-  message: string;
+  // RSA-encrypted message (base64-encoded ciphertext)
+  encryptedMessage: string;
   // Optional: parse mode (Markdown, MarkdownV2, HTML)
   parseMode?: 'Markdown' | 'MarkdownV2' | 'HTML';
-  // Optional: whether message is base64 encoded (default: true)
-  encoded?: boolean;
 }
 
 interface SendMessageResponse {
@@ -29,11 +31,11 @@ export const POST = protectedRoute(async (token, request) => {
   try {
     const body: SendMessageRequest = await request.json();
 
-    // Validate message
-    if (!body.message || typeof body.message !== 'string') {
+    // Validate encrypted message
+    if (!body.encryptedMessage || typeof body.encryptedMessage !== 'string') {
       return new Response(JSON.stringify({
         success: false,
-        error: 'Message is required and must be a string'
+        error: 'encryptedMessage is required and must be a string'
       } satisfies SendMessageResponse), {
         status: 400,
         headers: {
@@ -43,43 +45,32 @@ export const POST = protectedRoute(async (token, request) => {
       });
     }
 
-    // Decode base64 message if encoded (default: true)
-    let decodedMessage: string;
-    const isEncoded = body.encoded !== false; // default to true
+    // Decrypt RSA-encrypted message
+    let decryptedMessage: string;
+    try {
+      const privateKey = getPrivateKey();
+      decryptedMessage = decryptWithPrivateKey(body.encryptedMessage, privateKey);
 
-    if (isEncoded) {
-      try {
-        // Handle URL-safe base64 encoding
-        const normalizedBase64 = body.message
-          .replace(/-/g, '+')
-          .replace(/_/g, '/');
-
-        // Decode base64
-        const buffer = Buffer.from(normalizedBase64, 'base64');
-        decodedMessage = buffer.toString('utf-8');
-
-        // Validate that decoding produced valid UTF-8
-        if (!decodedMessage || decodedMessage.length === 0) {
-          throw new Error('Decoded message is empty');
-        }
-      } catch (error) {
-        return new Response(JSON.stringify({
-          success: false,
-          error: 'Failed to decode base64 message'
-        } satisfies SendMessageResponse), {
-          status: 400,
-          headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-          }
-        });
+      // Validate that decryption produced valid text
+      if (!decryptedMessage || decryptedMessage.length === 0) {
+        throw new Error('Decrypted message is empty');
       }
-    } else {
-      decodedMessage = body.message;
+    } catch (error) {
+      console.error('RSA decryption error:', error);
+      return new Response(JSON.stringify({
+        success: false,
+        error: 'Failed to decrypt message'
+      } satisfies SendMessageResponse), {
+        status: 400,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
+      });
     }
 
     // Validate message length (Telegram has a 4096 character limit)
-    if (decodedMessage.length > 4096) {
+    if (decryptedMessage.length > 4096) {
       return new Response(JSON.stringify({
         success: false,
         error: 'Message is too long (maximum 4096 characters)'
@@ -115,7 +106,7 @@ export const POST = protectedRoute(async (token, request) => {
     const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
     const telegramBody = {
       chat_id: targetChatId,
-      text: decodedMessage,
+      text: decryptedMessage,
       parse_mode: body.parseMode || 'HTML'
     };
 
