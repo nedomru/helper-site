@@ -89,26 +89,16 @@ function formatBody(body: string | null): string {
     <div style="display: flex; flex-direction: column; gap: 1.5rem;">
       {changelog.map((entry) => (
         <div style="padding: 1rem; border: 1px solid #ddd; border-radius: 4px;">
-          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
-            <div>
-              <h3 style="margin: 0; font-size: 1.1rem;">
-                <a href={entry.html_url} style="color: #0066cc; text-decoration: none;">
-                  {entry.name || entry.tag_name}
-                </a>
-                {entry.prerelease && (
-                  <span style="margin-left: 0.5rem; padding: 0.2rem 0.5rem; background: #fff3cd; color: #856404; font-size: 0.8rem; border-radius: 4px;">
-                    Предварительная версия
-                  </span>
-                )}
-              </h3>
-              <small style="color: #666;">{formatDate(entry.published_at)}</small>
-            </div>
-            <a
-              href={`https://github.com/nedomru/helper-site/releases/download/${entry.tag_name}/domhelper.xpi`}
-              style="padding: 0.4rem 0.8rem; background: #000; color: #fff; text-decoration: none; border-radius: 4px; font-size: 0.9rem; white-space: nowrap;"
-            >
-              Скачать
-            </a>
+          <div style="margin-bottom: 0.5rem;">
+            <h3 style="margin: 0; font-size: 1.1rem;">
+              {entry.name || entry.tag_name}
+              {entry.prerelease && (
+                <span style="margin-left: 0.5rem; padding: 0.2rem 0.5rem; background: #fff3cd; color: #856404; font-size: 0.8rem; border-radius: 4px;">
+                  Предварительная версия
+                </span>
+              )}
+            </h3>
+            <small style="color: #666;">{formatDate(entry.published_at)}</small>
           </div>
           <div style="margin-top: 0.5rem; line-height: 1.5;" set:html={formatBody(entry.body)} />
         </div>
