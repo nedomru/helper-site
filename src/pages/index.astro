@@ -25,6 +25,9 @@ try {
   console.error("Failed to fetch changelog:", error);
 }
 
+// Find latest beta release
+const latestBeta = changelog.find((release) => release.prerelease);
+
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
   return date.toLocaleDateString("ru-RU", {
@@ -50,17 +53,32 @@ function formatBody(body: string | null): string {
 
   <h2>Установка</h2>
   <p>
-    Нажми кнопку ниже для установки последней версии расширения:
+    Нажми кнопку ниже для установки последней стабильной версии расширения:
   </p>
 
-  <p>
+  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
     <a
       href="https://github.com/nedomru/helper-site/releases/latest/download/domhelper.xpi"
       style="display: inline-block; padding: 0.75rem 1.5rem; background: #000; color: #fff; text-decoration: none; border-radius: 4px; font-weight: bold;"
     >
-      Установить
+      🛡️ Установить (Stable)
     </a>
-  </p>
+
+    {latestBeta && (
+      <a
+        href={`https://github.com/nedomru/helper-site/releases/${latestBeta.tag_name}/download/domhelper.xpi`}
+        style="display: inline-block; padding: 0.75rem 1.5rem; background: #8b5cf6; color: #fff; text-decoration: none; border-radius: 4px; font-weight: bold;"
+      >
+        🧪 Установить (Beta {latestBeta.tag_name})
+      </a>
+    )}
+  </div>
+
+  {latestBeta && (
+    <p style="font-size: 0.85rem; color: #666;">
+      ⚠️ Бета-версия может содержать ошибки. Используйте на свой риск.
+    </p>
+  )}
 
   <h2>Сообщество</h2>
   <p>
@@ -94,8 +112,8 @@ function formatBody(body: string | null): string {
               {entry.name || entry.tag_name}
               {entry.prerelease && (
                 <span style="margin-left: 0.5rem; padding: 0.2rem 0.5rem; background: #fff3cd; color: #856404; font-size: 0.8rem; border-radius: 4px;">
-                  Предварительная версия
-                </span>
+                    Предварительная версия
+                  </span>
               )}
             </h3>
             <small style="color: #666;">{formatDate(entry.published_at)}</small>
