@@ -46,7 +46,7 @@ export async function getVersionsManifest(includePrerelease: boolean) {
           updates: [
             {
               version: latestRelease.tag_name.replace(/^v/, ""),
-              update_link: `https://github.com/${GITHUB_REPO}/releases/download/${latestRelease.tag_name}/domhelper.xpi`,
+              update_link: `https://github.com/${GITHUB_REPO}/releases/download/${latestRelease.tag_name}/helper.xpi`,
             },
           ],
         },
